@@ -1,0 +1,30 @@
+{
+  "name": "team-awesome-jarmo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/humanoidsbv/team-awesome-jarmo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/humanoidsbv/team-awesome-jarmo/issues"
+  },
+  "homepage": "https://github.com/humanoidsbv/team-awesome-jarmo#readme",
+  "dependencies": {
+    "next": "^12.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5"
+  },
+  "devDependencies": {
+    "babel-plugin-inline-react-svg": "^2.0.1"
+  }
+}
