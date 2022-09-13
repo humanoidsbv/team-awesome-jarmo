@@ -2,17 +2,16 @@
 import * as Styled from './Header.styled.js'
 import { Logo } from '../logo/Logo.jsx'
 import { MainMenu } from '../main-menu/MainMenu.jsx'
-import { MenuButton } from '../menu-button/MenuButton.jsx'
 import { useState } from 'react'
 
-import {OpenIcon} from "../../../icons/open.svg"
+import OpenIcon from "../../../icons/open.svg"
 
 
 
-export const Header = (props) => {
+export const Header = () => {
 
     const [isActive, setIsactive ] = useState(true);
-
+   
     const handleClick = () => {
         setIsactive(!isActive)
     }
@@ -22,7 +21,7 @@ export const Header = (props) => {
         <Styled.Header>
             <Styled.LeftMenu>
                 <Logo />
-                <MainMenu/>
+                <MainMenu isActive={isActive}/>
                   
             </Styled.LeftMenu>
             <Styled.RightMenu>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
+    box-sizing:border-box;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,6 +34,12 @@ gap: 30px;
 `;
 
 export const RightMenu = styled.div`
+    display: none;
+    @media only screen and (max-width: 825px) {
+    
+    display: block;
+    
 
 
+}
 `;

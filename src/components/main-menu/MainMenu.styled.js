@@ -15,13 +15,13 @@ export const MainMenu = styled.nav`
         width: 100%;
         position: fixed;
         top: 70px;
-        left: -100%;
+        left: ${props => props.isActive ? "0" : "-100%"};
         flex-direction: column;
         align-items: center;
         background-color: #4F88EF;
         transition: 0.3s;
-    
-    &.active{
+
+        &.active{
         height: 100%;
         width: 100%;
         position: fixed;
