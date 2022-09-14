@@ -9,7 +9,7 @@ display:inline;
 }
 `
 ;
-export const Nav = styled.nav`
+export const MainMenu = styled.nav`
 @media only screen and (max-width: 825px) {
         height: 100%;
         width: 100%;

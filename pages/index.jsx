@@ -1,13 +1,14 @@
-import { Header } from '../src/components/header'
-import GlobalStyle from "../styles/global"
+import React from "react";
+import Header from "../src/components/header";
+import GlobalStyle from "../styles/global";
 
 const Homepage = () => {
   return (
     <>
-    <GlobalStyle />
-    <Header />
+      <GlobalStyle />
+      <Header />
     </>
   );
-}
+};
 
 export default Homepage;
