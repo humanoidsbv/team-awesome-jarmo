@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import * as Styled from "./Header.styled";
-import Logo from "../logo/Logo";
-import MainMenu from "../main-menu/MainMenu";
+import { Logo } from "../logo/Logo";
+import { MainMenu } from "../main-menu/MainMenu";
 
 import { OpenIcon } from "../../../public/icons/open.svg";
 import { CloseIcon } from "../../../public/icons/close.svg";
