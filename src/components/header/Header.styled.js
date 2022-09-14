@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Button = styled.button`
+    cursor:pointer;
+    display: ${props => props.isActive ? "block" : "none"};
+    background-color: transparent; 
+    border: none;
+`;
+
 export const Header = styled.header`
     box-sizing:border-box;
     display: flex;
@@ -12,15 +19,12 @@ export const Header = styled.header`
     padding: 20px 30px;
    
     @media only screen and (max-width: 825px) {
-    
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #4F88EF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #4F88EF;
         
-
-
 }
 `;
 
@@ -34,12 +38,10 @@ gap: 30px;
 `;
 
 export const RightMenu = styled.div`
-    display: none;
+display: none;
     @media only screen and (max-width: 825px) {
+     display: block;
     
-    display: block;
-    
-
 
 }
 `;

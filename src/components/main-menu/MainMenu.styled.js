@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MenuListItem = styled.li`
+export const List = styled.li`
 display:inline;
 
 @media only screen and (max-width: 825px) {
@@ -9,7 +9,7 @@ display:inline;
 }
 `
 ;
-export const MainMenu = styled.nav`
+export const Nav = styled.nav`
 @media only screen and (max-width: 825px) {
         height: 100%;
         width: 100%;
@@ -36,12 +36,12 @@ export const MainMenu = styled.nav`
   
 `;
 
-export const MenuItems = styled.a`
-    color: white;
-    text-decoration: none;
-    display: inline-block;
-    padding: 5px 20px;
-    position: relative;
+export const Link = styled.a`
+color: white;
+text-decoration: none;
+display: inline-block;
+padding: 5px 20px;
+position: relative;
 
 
 &:after {    
