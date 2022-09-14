@@ -8,13 +8,13 @@ const GlobalStyle = createGlobalStyle`
  }
 
  @font-face {
-font-family: 'Bello Script';
-src: url('../src/fonts/bello-script.ttf') format("truetype");
+font-family: 'Bello-Script';
+src: url(/fonts/bello-script.ttf) format("truetype");
 }
 
 @font-face {
 font-family: "Proxima Nova";
-src: url('../src/fonts/proxima-nova-regular.woff') format("truetype");
+src: url(fonts/proxima-nova-regular.woff) format("truetype");
 }
  `;
 
