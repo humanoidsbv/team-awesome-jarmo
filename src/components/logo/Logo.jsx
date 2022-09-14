@@ -1,7 +1,6 @@
-import * as Styled from './Logo.styled.js'
+import React from "react";
+import * as Styled from "./Logo.styled";
 
 export const Logo = () => {
-  return (
-    <Styled.Logo>team awesome</Styled.Logo>
-  )
-}
+  return <Styled.Logo>team awesome</Styled.Logo>;
+};

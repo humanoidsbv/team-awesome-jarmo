@@ -1,47 +1,43 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-    cursor:pointer;
-    display: ${props => props.isActive ? "block" : "none"};
-    background-color: transparent; 
-    border: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: ${(props) => (props.isActive ? "block" : "none")};
 `;
 
 export const Header = styled.header`
-    box-sizing:border-box;
+  align-items: center;
+  background-color: ${({ theme }) => theme.backgroundSecondary};
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  justify-content: space-between;
+  padding: 20px 30px;
+  width: 100vw;
+
+  @media only screen and (max-width: 825px) {
+    align-items: center;
+    background-color: ${({ theme }) => theme.backgroundSecondary};
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
-    height: 70px;
-    background-color: #4F88EF;
-    width:100vw;
-    padding: 20px 30px;
-   
-    @media only screen and (max-width: 825px) {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #4F88EF;
-        
-}
+  }
 `;
 
 export const LeftMenu = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 0px;
-gap: 30px;
-
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  padding: 0px;
 `;
 
 export const RightMenu = styled.div`
-display: none;
-    @media only screen and (max-width: 825px) {
-     display: block;
-    
-
-}
+  display: none;
+  @media only screen and (max-width: 825px) {
+    display: block;
+  }
 `;

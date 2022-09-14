@@ -5,7 +5,7 @@ export const MainMenu = ({ isActive }) => {
   const menuItems = ["Timesheet", "Team Members", "Projects", "Clients", "Documents"];
 
   return (
-    <Styled.Menu isActive={isActive}>
+    <Styled.MenuItem isActive={isActive}>
       <Styled.MenuList>
         {menuItems.map((menu) => (
           <Styled.List key={menu}>
@@ -13,6 +13,6 @@ export const MainMenu = ({ isActive }) => {
           </Styled.List>
         ))}
       </Styled.MenuList>
-    </Styled.Menu>
+    </Styled.MenuItem>
   );
 };
