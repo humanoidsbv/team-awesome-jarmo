@@ -12,6 +12,7 @@ export const Button = styled.button`
   height: 40px;
   justify-content: center;
   width: 190px;
+  gap: 15px;
 
   :hover {
     background: tomato;

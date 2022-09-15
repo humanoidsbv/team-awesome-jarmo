@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const Divider = styled.span`
+  padding: 0 15px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    display: none;
+  }
+`;
 export const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 18px;
