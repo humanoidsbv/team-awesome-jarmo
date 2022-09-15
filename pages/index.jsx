@@ -12,7 +12,7 @@ const Homepage = () => {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Header />
-        <SubHeader message="test" />
+        <SubHeader title="Timesheets" subtitle="12 entries" />
       </ThemeProvider>
     </>
   );

@@ -5,6 +5,7 @@ export const theme = {
   colorPrimary: "#354052",
   fontPrimary: "Bello-Script",
   fontSecondary: "Proxima Nova",
+  fontColorSecondary: "#4B5464",
 
   // Breakpoints
   tablet: "max-width: 825px",

@@ -1,13 +1,21 @@
 import React from "react";
+import { Button } from "../button/Button";
 import * as Styled from "./SubHeader.styled";
 
-interface SubHeaderProps {
-  message: string;
-}
+type SubHeaderProps = {
+  title: string;
+  subtitle: string;
+};
 
-export const SubHeader = ({ message }: SubHeaderProps) => (
+export const SubHeader = ({ title, subtitle }: SubHeaderProps) => (
   <Styled.SubHead>
-    <Styled.SubLeft>{message}</Styled.SubLeft>
-    <Styled.SubRight>{message}</Styled.SubRight>
+    <Styled.SubLeft>
+      <h2>{title}</h2>
+      <span>|</span>
+      <p>{subtitle}</p>
+    </Styled.SubLeft>
+    <Styled.SubRight>
+      <Button label="New time entry" />
+    </Styled.SubRight>
   </Styled.SubHead>
 );
