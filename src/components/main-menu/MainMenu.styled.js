@@ -49,8 +49,8 @@ export const Link = styled.a`
   text-decoration: none;
 
   &:after {
-    background: #fff;
     background: none repeat scroll 0 0 transparent;
+    background: #fff;
     bottom: 0;
     content: "";
     display: block;
@@ -59,7 +59,6 @@ export const Link = styled.a`
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
-
   &:hover:after {
     left: 0;
     width: 100%;
