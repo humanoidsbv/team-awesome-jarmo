@@ -1,13 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
- *{
-    box-sizing: border border-box;
-    margin: 0;
+*{
+box-sizing: border border-box;
+margin: 0;
+}
 
- }
-
- @font-face {
+@font-face {
 font-family: 'Bello-Script';
 src: url(/fonts/bello-script.ttf) format("truetype");
 }

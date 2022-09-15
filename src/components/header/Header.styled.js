@@ -18,7 +18,7 @@ export const Header = styled.header`
   padding: 20px 30px;
   width: 100vw;
 
-  @media only screen and (max-width: 825px) {
+  @media (${({ theme }) => theme.tablet}) {
     align-items: center;
     background-color: ${({ theme }) => theme.backgroundSecondary};
     display: flex;
@@ -37,7 +37,7 @@ export const LeftMenu = styled.div`
 
 export const RightMenu = styled.div`
   display: none;
-  @media only screen and (max-width: 825px) {
+  @media (${({ theme }) => theme.tablet}) {
     display: block;
   }
 `;

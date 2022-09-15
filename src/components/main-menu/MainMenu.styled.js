@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const MenuItem = styled.div`
-  @media only screen and (max-width: 825px) {
+  @media (${({ theme }) => theme.tablet}) {
     align-items: center;
-    background-color: #4f88ef;
+    background-color: ${({ theme }) => theme.backgroundSecondary};
     flex-direction: column;
     height: 100%;
     left: ${(props) => (props.isActive ? "0" : "-100%")};
@@ -31,7 +31,7 @@ export const MenuList = styled.ul`
   list-style: none;
   width: 100%;
 
-  @media only screen and (max-width: 825px) {
+  @media (${({ theme }) => theme.tablet}) {
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -49,7 +49,6 @@ export const Link = styled.a`
   text-decoration: none;
 
   &:after {
-    background: none repeat scroll 0 0 transparent;
     background: #fff;
     bottom: 0;
     content: "";
@@ -68,7 +67,7 @@ export const Link = styled.a`
 export const List = styled.li`
   display: inline;
 
-  @media only screen and (max-width: 825px) {
+  @media (${({ theme }) => theme.tablet}) {
     display: block;
     padding: 24px 0px;
   }
