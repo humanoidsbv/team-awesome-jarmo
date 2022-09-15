@@ -25,7 +25,7 @@ export const MenuItem = styled.div`
 `;
 
 export const MenuList = styled.ul`
-  font-family: "Proxima Nova";
+  font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 14px;
   gap: 14px;
   list-style: none;

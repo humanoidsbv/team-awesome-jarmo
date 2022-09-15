@@ -3,8 +3,8 @@ export const theme = {
   backgroundSecondary: "#4f88ef",
   borderPrimary: "1px solid #e6eaee",
   colorPrimary: "#354052",
-  fontPrimary: "Proxima Nova",
-  fontSecondary: "Bello Script",
+  fontPrimary: "Bello-Script",
+  fontSecondary: "Proxima Nova",
 
   // Breakpoints
   tablet: "min-width: 720px",
