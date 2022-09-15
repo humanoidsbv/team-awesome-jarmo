@@ -14,7 +14,7 @@ src: url(/fonts/bello-script.ttf) format("truetype");
 
 @font-face {
 font-family: "Proxima Nova";
-src: url(fonts/proxima-nova-regular.woff) format("truetype");
+src: url(/fonts/proxima-nova-regular.woff) format("truetype");
 }
  `;
 
