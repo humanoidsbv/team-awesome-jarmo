@@ -9,9 +9,9 @@ export const Button = styled.button`
   cursor: pointer;
   display: flex;
   font-size: 14px;
-  height: 50px;
+  height: 40px;
   justify-content: center;
-  width: fit-content;
+  width: 190px;
 
   :hover {
     background: tomato;

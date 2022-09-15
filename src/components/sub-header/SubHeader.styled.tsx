@@ -1,11 +1,20 @@
 import styled from "styled-components";
 
-export const SubHead = styled.div`
-  display: flex;
+export const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontSecondary};
-  font-size: 16px;
-  padding: 20px 30px;
+  font-size: 18px;
   color: ${({ theme }) => theme.fontColorSecondary};
+`;
+
+export const SubTitle = styled.p`
+  color: ${({ theme }) => theme.fontColorThird};
+  font-family: ${({ theme }) => theme.fontSecondary};
+  font-size: 14px;
+`;
+
+export const SubHeader = styled.div`
+  display: flex;
+  padding: 20px 30px;
 
   @media (${({ theme }) => theme.tablet}) {
     display: flex;
