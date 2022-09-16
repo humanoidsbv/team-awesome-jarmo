@@ -7,7 +7,7 @@ export const theme = {
   fontSecondary: "Proxima Nova",
   fontColorSecondary: "#4B5464",
   fontColorThird: "#7F8FA4",
-
+  buttonPrimaryColor: "#37b047",
   // Breakpoints
   tablet: "max-width: 825px",
   desktop: "min-width: 1024px",
