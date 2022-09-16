@@ -7,11 +7,6 @@ export const Divider = styled.span`
     display: none;
   }
 `;
-export const Title = styled.h2`
-  font-family: ${({ theme }) => theme.fontSecondary};
-  font-size: 18px;
-  color: ${({ theme }) => theme.fontColorSecondary};
-`;
 
 export const SubTitle = styled.p`
   color: ${({ theme }) => theme.fontColorThird};
@@ -20,6 +15,7 @@ export const SubTitle = styled.p`
 `;
 
 export const SubHeader = styled.div`
+  border-bottom: 1px solid ${({ theme }) => theme.fontColorThird};
   display: flex;
   padding: 20px 30px;
 
@@ -31,17 +27,24 @@ export const SubHeader = styled.div`
 `;
 
 export const SubLeft = styled.div`
-  flex: 50%;
-  display: flex;
-  justify-content: flex-start;
   align-items: center;
+  display: flex;
+  flex: 50%;
+  justify-content: flex-start;
 
   @media (${({ theme }) => theme.tablet}) {
     justify-content: space-between;
   }
 `;
+
 export const SubRight = styled.div`
-  flex: 50%;
   display: flex;
+  flex: 50%;
   justify-content: flex-end;
+`;
+
+export const Title = styled.h2`
+  color: ${({ theme }) => theme.fontColorSecondary};
+  font-family: ${({ theme }) => theme.fontSecondary};
+  font-size: 18px;
 `;

@@ -15,7 +15,7 @@ export const Button = styled.button`
   width: 190px;
 
   :hover {
-    background: tomato;
+    background: #1e990a;
   }
 
   @media (${({ theme }) => theme.tablet}) {
