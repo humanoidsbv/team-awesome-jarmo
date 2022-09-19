@@ -1,6 +1,12 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Button = styled.button`
+type ButtonProps = {
+  variant?: string;
+
+  onClick?: () => void;
+};
+
+export const Button = styled.button<ButtonProps>`
   align-items: center;
   background-color: ${({ theme }) => theme.buttonPrimaryColor};
   border-radius: 4px;
@@ -18,6 +24,12 @@ export const Button = styled.button`
     background: #1e990a;
   }
 
+  ${({ variant }) =>
+    variant === "secondary" &&
+    css`
+      border: 10px solid tomato;
+      color: tomato;
+    `}
   @media (${({ theme }) => theme.tablet}) {
     width: 100%;
   }

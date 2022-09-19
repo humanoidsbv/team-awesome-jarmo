@@ -10,15 +10,15 @@ type SubHeaderProps = {
 
 export const SubHeader = ({ title, amount, subtitle }: SubHeaderProps) => (
   <Styled.SubHeader>
-    <Styled.SubLeft>
+    <Styled.LeftContainer>
       <Styled.Title>{title}</Styled.Title>
       <Styled.SubTitle>
         <Styled.Divider>|</Styled.Divider>
         {amount} {subtitle}
       </Styled.SubTitle>
-    </Styled.SubLeft>
-    <Styled.SubRight>
+    </Styled.LeftContainer>
+    <Styled.RightContainer>
       <Button icon label=" New time entry" />
-    </Styled.SubRight>
+    </Styled.RightContainer>
   </Styled.SubHeader>
 );

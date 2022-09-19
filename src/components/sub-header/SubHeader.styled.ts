@@ -8,7 +8,7 @@ export const Divider = styled.span`
   }
 `;
 
-export const SubTitle = styled.p`
+export const SubTitle = styled.h3`
   color: ${({ theme }) => theme.fontColorThird};
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 14px;
@@ -26,7 +26,7 @@ export const SubHeader = styled.div`
   }
 `;
 
-export const SubLeft = styled.div`
+export const LeftContainer = styled.div`
   align-items: center;
   display: flex;
   flex: 50%;
@@ -37,7 +37,7 @@ export const SubLeft = styled.div`
   }
 `;
 
-export const SubRight = styled.div`
+export const RightContainer = styled.div`
   display: flex;
   flex: 50%;
   justify-content: flex-end;
