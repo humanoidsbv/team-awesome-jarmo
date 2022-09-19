@@ -18,7 +18,7 @@ export const SubHeader = ({ title, amount, subtitle }: SubHeaderProps) => (
       </Styled.SubTitle>
     </Styled.SubLeft>
     <Styled.SubRight>
-      <Button label=" New time entry" />
+      <Button icon label=" New time entry" />
     </Styled.SubRight>
   </Styled.SubHeader>
 );
