@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
+type MenuProps = {
+  isActive: boolean;
+};
+
 export const MenuItem = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     align-items: center;
     background-color: ${({ theme }) => theme.backgroundSecondary};
     flex-direction: column;
     height: 100%;
-    left: ${(props) => (props.isActive ? "0" : "-100%")};
+    left: ${(props: MenuProps) => (props.isActive ? "0" : "-100%")};
     position: fixed;
     top: 70px;
     transition: 0.3s;

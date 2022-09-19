@@ -7,7 +7,7 @@ import OpenIcon from "../../../public/icons/open.svg";
 import CloseIcon from "../../../public/icons/close.svg";
 
 export const Header = () => {
-  const [isActive, setIsActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
     setIsActive(!isActive);

@@ -1,10 +1,14 @@
 import styled from "styled-components";
 
+type ButtonProps = {
+  isActive: boolean;
+};
+
 export const Button = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  display: ${(props) => (props.isActive ? "block" : "none")};
+  display: ${(props: ButtonProps) => (props.isActive ? "block" : "none")};
 `;
 
 export const Header = styled.header`

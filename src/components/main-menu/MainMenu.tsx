@@ -1,7 +1,11 @@
 import React from "react";
 import * as Styled from "./MainMenu.styled";
 
-export const MainMenu = ({ isActive }) => {
+type MenuProps = {
+  isActive: boolean;
+};
+
+export const MainMenu = ({ isActive }: MenuProps) => {
   const menuItems = ["Timesheet", "Team Members", "Projects", "Clients", "Documents"];
 
   return (
