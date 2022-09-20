@@ -10,9 +10,9 @@ export const MainMenu = ({ isActive }: MenuProps) => {
   return (
     <Styled.MenuItem isActive={isActive}>
       <Styled.MenuList>
-        {menuItems.map((menu) => (
-          <Styled.List key={menu}>
-            <Styled.Link href="#">{menu}</Styled.Link>
+        {menuItems.map((menuItem) => (
+          <Styled.List key={menuItem}>
+            <Styled.Link href="#">{menuItem}</Styled.Link>
           </Styled.List>
         ))}
       </Styled.MenuList>

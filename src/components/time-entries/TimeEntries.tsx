@@ -6,14 +6,22 @@ import * as Styled from "./TimeEntries.styled";
 export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
 
+  const date = new Date();
+  const formattedTime = date.toLocaleTimeString("nl-NL", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  // eslint-disable-next-line no-console
+  console.log(date);
+
   const handleClick = () => {
     setTimeEntries([
       ...timeEntries,
       {
         id: Math.random(),
         client: "Port of Rotterdam",
-        startTimestamp: "2022-09-26T16:00:00.000Z",
-        stopTimestamp: "2022-09-26T18:00:00.000Z",
+        startTimestamp: formattedTime,
+        stopTimestamp: formattedTime,
       },
     ]);
   };

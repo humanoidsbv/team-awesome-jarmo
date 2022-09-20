@@ -8,6 +8,11 @@ export const DayContainer = styled.div`
 
 export const Main = styled.main`
   background-color: #f5f7f9;
+  padding: 0px 10%;
+
+  @media (${({ theme }) => theme.tablet}) {
+    padding: 0;
+  }
 `;
 
 export const Title = styled.h2`

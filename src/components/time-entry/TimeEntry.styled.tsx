@@ -9,7 +9,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   height: 80px;
-  margin: 0 20px;
+  margin: 0 10px;
   padding: 0 10px;
 `;
 
@@ -29,10 +29,6 @@ export const DayContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px 20px 10px 20px;
-`;
-
-export const Main = styled.main`
-  background-color: #f5f7f9;
 `;
 
 export const Title = styled.h2`
