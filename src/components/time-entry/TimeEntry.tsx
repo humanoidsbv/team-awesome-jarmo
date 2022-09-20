@@ -3,26 +3,23 @@ import BinIcon from "../../../public/icons/bin.svg";
 
 interface EntryProps {
   client: string;
-  id: number;
+  startTime: string;
+  stopTime: string;
 }
 
-export const TimeEntry = ({ client, id }: EntryProps) => {
+export const TimeEntry = ({ client, startTime, stopTime }: EntryProps) => {
   return (
-    <Styled.Main>
-      <Styled.DayContainer>
-        <Styled.Title>Friday 29-07 Today</Styled.Title>
-        <Styled.Title>08:00</Styled.Title>
-      </Styled.DayContainer>
-      <Styled.Container>
-        <Styled.Title key={id}>{client}</Styled.Title>
-        <Styled.DateContainer>
-          <Styled.Data>
-            <Styled.Time>09:00-17:00</Styled.Time>
-            <Styled.Hours>08:00</Styled.Hours>
-          </Styled.Data>
-          <BinIcon />
-        </Styled.DateContainer>
-      </Styled.Container>
-    </Styled.Main>
+    <Styled.Container>
+      <Styled.Title>{client}</Styled.Title>
+      <Styled.DateContainer>
+        <Styled.Data>
+          <Styled.Time>
+            {startTime}-{stopTime}
+          </Styled.Time>
+          <Styled.Hours>08:00</Styled.Hours>
+        </Styled.Data>
+        <BinIcon />
+      </Styled.DateContainer>
+    </Styled.Container>
   );
 };

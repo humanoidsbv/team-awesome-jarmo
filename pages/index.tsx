@@ -9,14 +9,12 @@ import { theme } from "../styles/theme";
 
 const Homepage = () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <Header />
-        <SubHeader title="Timesheets" amount={12} subtitle="entries" />
-        <TimeEntries />
-      </ThemeProvider>
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Header />
+      <SubHeader title="Timesheets" amount={12} subtitle="entries" />
+      <TimeEntries />
+    </ThemeProvider>
   );
 };
 
