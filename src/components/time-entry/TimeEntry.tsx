@@ -8,13 +8,22 @@ interface EntryProps {
 }
 
 export const TimeEntry = ({ client, startTime, stopTime }: EntryProps) => {
+  const formattedStartTime = new Date(startTime).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const formattedEndTime = new Date(stopTime).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
     <Styled.Container>
       <Styled.Title>{client}</Styled.Title>
       <Styled.DateContainer>
         <Styled.Data>
           <Styled.Time>
-            {startTime}-{stopTime}
+            {formattedStartTime} - {formattedEndTime}
           </Styled.Time>
           <Styled.Hours>08:00</Styled.Hours>
         </Styled.Data>

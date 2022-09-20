@@ -7,12 +7,13 @@ export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
 
   const date = new Date();
-  const formattedTime = date.toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
+
+  const weekday = date;
+  const today = weekday.toLocaleDateString("en-GB", {
+    weekday: "long",
+    day: "numeric",
+    month: "numeric",
   });
-  // eslint-disable-next-line no-console
-  console.log(date);
 
   const handleClick = () => {
     setTimeEntries([
@@ -20,8 +21,8 @@ export const TimeEntries = () => {
       {
         id: Math.random(),
         client: "Port of Rotterdam",
-        startTimestamp: formattedTime,
-        stopTimestamp: formattedTime,
+        startTimestamp: "2022-09-24T16:00:00.000Z",
+        stopTimestamp: "2022-09-24T22:00:00.000Z",
       },
     ]);
   };
@@ -30,17 +31,26 @@ export const TimeEntries = () => {
     <>
       <Styled.Main>
         <Styled.DayContainer>
-          <Styled.Title>Friday 29-07 Today</Styled.Title>
+          <Styled.Title>{today}</Styled.Title>
           <Styled.Title>08:00</Styled.Title>
         </Styled.DayContainer>
-        {timeEntries.map((timeEntry) => (
-          <TimeEntry
-            client={timeEntry.client}
-            key={timeEntry.id}
-            startTime={timeEntry.startTimestamp}
-            stopTime={timeEntry.stopTimestamp}
-          />
-        ))}
+        {timeEntries.map((timeEntry, index) => {
+          const startDate = new Date(timeEntry.startTimestamp);
+          const endDate = new Date(timeEntry.stopTimestamp);
+
+          const dateIsDifferent = startDate.getDate() === endDate.getDate();
+
+          `${dateIsDifferent} ? <div>Insert new Date</div> : " "`;
+
+          return (
+            <TimeEntry
+              client={timeEntry.client}
+              key={timeEntry.id}
+              startTime={timeEntry.startTimestamp}
+              stopTime={timeEntry.stopTimestamp}
+            />
+          );
+        })}
         <button type="button" onClick={handleClick}>
           Add time entry
         </button>

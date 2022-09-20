@@ -28,7 +28,7 @@ export const DateContainer = styled.div`
 export const DayContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 20px 20px 10px 20px;
+  padding: 20px 10px;
 `;
 
 export const Title = styled.h2`
