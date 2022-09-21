@@ -6,23 +6,14 @@ import * as Styled from "./TimeEntries.styled";
 export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
 
-  const date = new Date();
-
-  const weekday = date;
-  const today = weekday.toLocaleDateString("en-GB", {
-    weekday: "long",
-    day: "numeric",
-    month: "numeric",
-  });
-
   const handleClick = () => {
     setTimeEntries([
       ...timeEntries,
       {
         id: Math.random(),
         client: "Port of Rotterdam",
-        startTimestamp: "2022-09-24T16:00:00.000Z",
-        stopTimestamp: "2022-09-24T22:00:00.000Z",
+        startTimestamp: "2022-09-21T16:00:00.000Z",
+        stopTimestamp: "2022-09-21T22:00:00.000Z",
       },
     ]);
   };
@@ -30,27 +21,39 @@ export const TimeEntries = () => {
   return (
     <>
       <Styled.Main>
-        <Styled.DayContainer>
-          <Styled.Title>{today}</Styled.Title>
-          <Styled.Title>08:00</Styled.Title>
-        </Styled.DayContainer>
-        {timeEntries.map((timeEntry, index) => {
-          const startDate = new Date(timeEntry.startTimestamp);
-          const endDate = new Date(timeEntry.stopTimestamp);
+        {timeEntries
+          .sort(
+            (a, b) => new Date(b.startTimestamp).valueOf() - new Date(a.startTimestamp).valueOf(),
+          )
+          .map((timeEntry, i, arr) => {
+            const currentDay = new Date(timeEntry.startTimestamp).toLocaleDateString("en-EN", {
+              weekday: "long",
+              day: "numeric",
+              month: "numeric",
+            });
 
-          const dateIsDifferent = startDate.getDate() === endDate.getDate();
+            const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString();
 
-          `${dateIsDifferent} ? <div>Insert new Date</div> : " "`;
+            const previousDate = new Date(arr[i - 1]?.startTimestamp).toLocaleDateString();
 
-          return (
-            <TimeEntry
-              client={timeEntry.client}
-              key={timeEntry.id}
-              startTime={timeEntry.startTimestamp}
-              stopTime={timeEntry.stopTimestamp}
-            />
-          );
-        })}
+            return (
+              <>
+                {previousDate !== currentDate && (
+                  <Styled.DayContainer>
+                    <Styled.Title>{currentDay}</Styled.Title>
+                    <Styled.Title>08:00</Styled.Title>
+                  </Styled.DayContainer>
+                )}
+                <TimeEntry
+                  client={timeEntry.client}
+                  key={timeEntry.id}
+                  startTime={timeEntry.startTimestamp}
+                  stopTime={timeEntry.stopTimestamp}
+                />
+              </>
+            );
+          })}
+
         <button type="button" onClick={handleClick}>
           Add time entry
         </button>

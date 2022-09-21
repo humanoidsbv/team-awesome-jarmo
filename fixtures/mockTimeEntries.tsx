@@ -20,8 +20,8 @@ const mockTimeEntries = [
   {
     id: 4,
     client: "Bavaria",
-    startTimestamp: "2022-10-24T12:30:00.000Z",
-    stopTimestamp: "2022-10-24T15:30:00.000Z",
+    startTimestamp: "2022-11-24T12:30:00.000Z",
+    stopTimestamp: "2022-11-24T15:30:00.000Z",
   },
   {
     id: 5,
@@ -32,8 +32,8 @@ const mockTimeEntries = [
   {
     id: 6,
     client: "Ajax",
-    startTimestamp: "2022-11-28T12:30:00.000Z",
-    stopTimestamp: "2022-11-28T15:30:00.000Z",
+    startTimestamp: "2022-10-28T12:30:00.000Z",
+    stopTimestamp: "2022-10-28T15:30:00.000Z",
   },
 ];
 
