@@ -1,11 +1,10 @@
-import React from "react";
 import * as Styled from "./Button.styled";
 import PlusIcon from "../../../public/icons/plus.svg";
 
 interface ButtonProps {
-  onClick?: () => void;
   label: string;
   icon?: boolean;
+  onClick?: () => void;
   variant?: "primary" | "secondary";
 }
 

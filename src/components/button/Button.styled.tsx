@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 type ButtonProps = {
   variant?: string;
-
   onClick?: () => void;
 };
 
