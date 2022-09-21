@@ -1,14 +1,14 @@
-import * as Styled from "./MainMenu.styled";
+import * as Styled from "./Navigation.styled";
 
 type MenuProps = {
   isActive: boolean;
 };
 
-export const MainMenu = ({ isActive }: MenuProps) => {
+export const Navigation = ({ isActive }: MenuProps) => {
   const menuItems = ["Timesheet", "Team Members", "Projects", "Clients", "Documents"];
 
   return (
-    <Styled.MenuItem isActive={isActive}>
+    <Styled.Nav isActive={isActive}>
       <Styled.MenuList>
         {menuItems.map((menuItem) => (
           <Styled.List key={menuItem}>
@@ -16,6 +16,6 @@ export const MainMenu = ({ isActive }: MenuProps) => {
           </Styled.List>
         ))}
       </Styled.MenuList>
-    </Styled.MenuItem>
+    </Styled.Nav>
   );
 };

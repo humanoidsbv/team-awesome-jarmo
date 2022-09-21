@@ -1,7 +1,7 @@
 import { useState } from "react";
 import * as Styled from "./Header.styled";
 import { Logo } from "../logo/Logo";
-import { MainMenu } from "../main-menu/MainMenu";
+import { Navigation } from "../navigation/Navigation";
 
 import HamburgerIcon from "../../../public/icons/open.svg";
 import CloseIcon from "../../../public/icons/close.svg";
@@ -17,7 +17,7 @@ export const Header = () => {
     <Styled.Header>
       <Styled.LeftMenu>
         <Logo />
-        <MainMenu isActive={isActive} />
+        <Navigation isActive={isActive} />
       </Styled.LeftMenu>
 
       <Styled.RightMenu>

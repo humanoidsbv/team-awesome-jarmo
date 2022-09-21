@@ -4,7 +4,7 @@ type MenuProps = {
   isActive: boolean;
 };
 
-export const MenuItem = styled.div`
+export const Nav = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     align-items: center;
     background-color: ${({ theme }) => theme.backgroundSecondary};
