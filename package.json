@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "next",
+    "json-server": "json-server --watch db.json --port 3004",
+    "dev": "next & npm run json-server",
     "build": "next build",
     "start": "next start"
   },

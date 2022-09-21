@@ -1,10 +1,29 @@
-import { useState } from "react";
-import mockTimeEntries from "../../../fixtures/mockTimeEntries";
+import { useState, useEffect } from "react";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Styled from "./TimeEntries.styled";
+import * as Types from "../../types/types";
 
 export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState(mockTimeEntries);
+  const [timeEntries, setTimeEntries] = useState<Types.EntryProps[]>([]);
+
+  async function getTimeEntries(): Promise<Types.EntryProps[]> {
+    const response = await fetch("http://localhost:3004/time-entries", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    return response.json();
+  }
+
+  async function fetchTimeEntries() {
+    setTimeEntries(await getTimeEntries());
+  }
+
+  useEffect(() => {
+    fetchTimeEntries();
+  }, []);
 
   const handleClick = () => {
     setTimeEntries([
@@ -12,8 +31,8 @@ export const TimeEntries = () => {
       {
         id: Math.random(),
         client: "Port of Rotterdam",
-        startTimestamp: "2022-09-21T16:00:00.000Z",
-        stopTimestamp: "2022-09-21T22:00:00.000Z",
+        startTime: "2022-09-21T16:00:00.000Z",
+        endTime: "2022-09-21T22:00:00.000Z",
       },
     ]);
   };
@@ -22,17 +41,15 @@ export const TimeEntries = () => {
     <>
       <Styled.Main>
         {timeEntries
-          .sort(
-            (a, b) => new Date(b.startTimestamp).valueOf() - new Date(a.startTimestamp).valueOf(),
-          )
+          .sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
-            const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString("en-EN", {
+            const currentDate = new Date(timeEntry.startTime).toLocaleDateString("en-EN", {
               weekday: "long",
               day: "numeric",
               month: "numeric",
             });
 
-            const previousDate = new Date(arr[i - 1]?.startTimestamp).toLocaleDateString("en-EN", {
+            const previousDate = new Date(arr[i - 1]?.startTime).toLocaleDateString("en-EN", {
               weekday: "long",
               day: "numeric",
               month: "numeric",
@@ -49,8 +66,8 @@ export const TimeEntries = () => {
                 <TimeEntry
                   client={timeEntry.client}
                   key={timeEntry.id}
-                  startTime={timeEntry.startTimestamp}
-                  stopTime={timeEntry.stopTimestamp}
+                  startTime={timeEntry.startTime}
+                  stopTime={timeEntry.endTime}
                 />
               </>
             );
