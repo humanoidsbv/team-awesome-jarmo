@@ -68,7 +68,7 @@ export const Link = styled.a`
   }
 `;
 
-export const List = styled.li`
+export const MenuItem = styled.li`
   display: inline;
 
   @media (${({ theme }) => theme.tablet}) {

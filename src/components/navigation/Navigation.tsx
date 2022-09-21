@@ -11,9 +11,9 @@ export const Navigation = ({ isActive }: MenuProps) => {
     <Styled.Nav isActive={isActive}>
       <Styled.MenuList>
         {menuItems.map((menuItem) => (
-          <Styled.List key={menuItem}>
+          <Styled.MenuItem key={menuItem}>
             <Styled.Link href="#">{menuItem}</Styled.Link>
-          </Styled.List>
+          </Styled.MenuItem>
         ))}
       </Styled.MenuList>
     </Styled.Nav>
