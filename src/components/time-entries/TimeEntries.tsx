@@ -26,21 +26,23 @@ export const TimeEntries = () => {
             (a, b) => new Date(b.startTimestamp).valueOf() - new Date(a.startTimestamp).valueOf(),
           )
           .map((timeEntry, i, arr) => {
-            const currentDay = new Date(timeEntry.startTimestamp).toLocaleDateString("en-EN", {
+            const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString("en-EN", {
               weekday: "long",
               day: "numeric",
               month: "numeric",
             });
 
-            const currentDate = new Date(timeEntry.startTimestamp).toLocaleDateString();
-
-            const previousDate = new Date(arr[i - 1]?.startTimestamp).toLocaleDateString();
+            const previousDate = new Date(arr[i - 1]?.startTimestamp).toLocaleDateString("en-EN", {
+              weekday: "long",
+              day: "numeric",
+              month: "numeric",
+            });
 
             return (
               <>
                 {previousDate !== currentDate && (
                   <Styled.DayContainer>
-                    <Styled.Title>{currentDay}</Styled.Title>
+                    <Styled.Title>{currentDate}</Styled.Title>
                     <Styled.Title>08:00</Styled.Title>
                   </Styled.DayContainer>
                 )}
