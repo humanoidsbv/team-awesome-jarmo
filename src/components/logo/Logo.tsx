@@ -1,4 +1,3 @@
-import React from "react";
 import * as Styled from "./Logo.styled";
 
 export const Logo = () => {

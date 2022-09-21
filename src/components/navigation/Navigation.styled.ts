@@ -1,12 +1,16 @@
 import styled from "styled-components";
 
-export const MenuItem = styled.div`
+type MenuProps = {
+  isActive: boolean;
+};
+
+export const Nav = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     align-items: center;
     background-color: ${({ theme }) => theme.backgroundSecondary};
     flex-direction: column;
     height: 100%;
-    left: ${(props) => (props.isActive ? "0" : "-100%")};
+    left: ${(props: MenuProps) => (props.isActive ? "0" : "-100%")};
     position: fixed;
     top: 70px;
     transition: 0.3s;
@@ -64,7 +68,7 @@ export const Link = styled.a`
   }
 `;
 
-export const List = styled.li`
+export const MenuItem = styled.li`
   display: inline;
 
   @media (${({ theme }) => theme.tablet}) {

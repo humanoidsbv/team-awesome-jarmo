@@ -1,10 +1,10 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import * as Styled from "./Header.styled";
 import { Logo } from "../logo/Logo";
-import { MainMenu } from "../main-menu/MainMenu";
+import { Navigation } from "../navigation/Navigation";
 
-import { OpenIcon } from "../../../public/icons/open.svg";
-import { CloseIcon } from "../../../public/icons/close.svg";
+import HamburgerIcon from "../../../public/icons/open.svg";
+import CloseIcon from "../../../public/icons/close.svg";
 
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
@@ -17,12 +17,12 @@ export const Header = () => {
     <Styled.Header>
       <Styled.LeftMenu>
         <Logo />
-        <MainMenu isActive={isActive} />
+        <Navigation isActive={isActive} />
       </Styled.LeftMenu>
 
       <Styled.RightMenu>
         <Styled.Button isActive={!isActive} onClick={handleClick}>
-          <OpenIcon />
+          <HamburgerIcon />
         </Styled.Button>
         <Styled.Button isActive={isActive} onClick={handleClick}>
           <CloseIcon />
