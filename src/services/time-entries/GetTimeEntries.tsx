@@ -13,7 +13,7 @@ export async function getTimeEntries(): Promise<Types.EntryProps[]> {
     .catch((error) => {
       if (error instanceof Classes.NotFoundError) {
         // eslint-disable-next-line no-console
-        console.log("error");
+        console.log("Oops, this is not working");
       }
     });
 }
