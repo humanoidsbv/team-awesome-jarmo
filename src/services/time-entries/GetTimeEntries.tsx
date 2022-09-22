@@ -1,19 +1,15 @@
-import * as Classes from "../../classes/classes";
 import * as Types from "../../types/types";
 
-export async function getTimeEntries(): Promise<Types.EntryProps[]> {
-  return fetch("http://localhost:3004/time-entries")
+export async function getTimeEntries(): Promise<Types.EntryProps[] | Error> {
+  return fetch("http://localhost:3004/timeEntries/test")
     .then(async (response) => {
-      if (response.status === 404) {
-        throw new Classes.NotFoundError(await response.json());
+      if (response.status !== 200) {
+        throw new Error(await response.json());
       }
 
       return response.json();
     })
     .catch((error) => {
-      if (error instanceof Classes.NotFoundError) {
-        // eslint-disable-next-line no-console
-        console.log("Oops, this is not working");
-      }
+      return error;
     });
 }
