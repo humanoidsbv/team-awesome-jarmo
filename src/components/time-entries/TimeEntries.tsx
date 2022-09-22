@@ -2,20 +2,12 @@ import { useState, useEffect } from "react";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Styled from "./TimeEntries.styled";
 import * as Types from "../../types/types";
+import { getTimeEntries } from "../../services/time-entries";
 
 export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState<Types.EntryProps[]>([]);
 
-  async function getTimeEntries(): Promise<Types.EntryProps[]> {
-    const response = await fetch("http://localhost:3004/time-entries", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    return response.json();
-  }
+  getTimeEntries();
 
   async function fetchTimeEntries() {
     setTimeEntries(await getTimeEntries());
@@ -41,7 +33,7 @@ export const TimeEntries = () => {
     <>
       <Styled.Main>
         {timeEntries
-          .sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
+          ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
             const currentDate = new Date(timeEntry.startTime).toLocaleDateString("en-EN", {
               weekday: "long",
@@ -56,7 +48,7 @@ export const TimeEntries = () => {
             });
 
             return (
-              <>
+              <div key={timeEntry.id}>
                 {previousDate !== currentDate && (
                   <Styled.DayContainer>
                     <Styled.Title>{currentDate}</Styled.Title>
@@ -65,11 +57,10 @@ export const TimeEntries = () => {
                 )}
                 <TimeEntry
                   client={timeEntry.client}
-                  key={timeEntry.id}
                   startTime={timeEntry.startTime}
                   stopTime={timeEntry.endTime}
                 />
-              </>
+              </div>
             );
           })}
 
