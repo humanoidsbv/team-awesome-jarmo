@@ -1,1 +1,1 @@
-export * from "./GetTimeEntries";
+export * from "./getTimeEntries";

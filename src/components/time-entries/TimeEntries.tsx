@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
-import { getTimeEntries } from "../../services/time-entries";
-import { TimeEntry } from "../time-entry/TimeEntry";
-import * as Types from "../../types/types";
-import * as Styled from "./TimeEntries.styled";
+import { EntryProps } from "../../types/types";
 import { ErrorScreen } from "../error-screen/ErrorScreen";
+import { getTimeEntries } from "../../services/time-entries";
+import * as Styled from "./TimeEntries.styled";
+import { TimeEntry } from "../time-entry/TimeEntry";
 
 export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState<Types.EntryProps[]>([]);
+  const [timeEntries, setTimeEntries] = useState<EntryProps[]>([]);
   const [dataError, setDataError] = useState(false);
-
-  getTimeEntries();
 
   async function fetchTimeEntries() {
     const awaitTimeEntries = await getTimeEntries();

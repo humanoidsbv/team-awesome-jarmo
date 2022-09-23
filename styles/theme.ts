@@ -9,6 +9,7 @@ export const theme = {
   fontColorThird: "#7F8FA4",
   buttonPrimaryColor: "#37b047",
   primaryBackground: "#f5f7f9",
+  borderColor: "#E6EAEE",
   // Breakpoints
   tablet: "max-width: 825px",
   desktop: "min-width: 1024px",

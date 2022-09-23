@@ -15,7 +15,7 @@ export const SubTitle = styled.h3`
 `;
 
 export const SubHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.fontColorThird};
+  border-bottom: 1px solid ${({ theme }) => theme.borderColor};
   display: flex;
   padding: 20px 30px;
 
