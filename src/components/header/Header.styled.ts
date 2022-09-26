@@ -13,7 +13,7 @@ export const Button = styled.button`
 
 export const Header = styled.header`
   align-items: center;
-  background-color: ${({ theme }) => theme.backgroundSecondary};
+  background-color: ${({ theme }) => theme.backgroundSecondaryColor};
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -24,7 +24,7 @@ export const Header = styled.header`
 
   @media (${({ theme }) => theme.tablet}) {
     align-items: center;
-    background-color: ${({ theme }) => theme.backgroundSecondary};
+    background-color: ${({ theme }) => theme.backgroundSecondaryColor};
     display: flex;
     flex-direction: row;
     justify-content: space-between;

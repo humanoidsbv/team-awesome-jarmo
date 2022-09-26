@@ -1,5 +1,5 @@
-import * as Styled from "./TimeEntry.styled";
 import BinIcon from "../../../public/icons/bin.svg";
+import * as Styled from "./TimeEntry.styled";
 
 interface EntryProps {
   client: string;

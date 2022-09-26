@@ -9,13 +9,13 @@ export const Divider = styled.span`
 `;
 
 export const SubTitle = styled.h3`
-  color: ${({ theme }) => theme.fontColorThird};
+  color: ${({ theme }) => theme.fontSecondaryColor};
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 14px;
 `;
 
 export const SubHeader = styled.div`
-  border-bottom: 1px solid ${({ theme }) => theme.fontColorThird};
+  border-bottom: 1px solid ${({ theme }) => theme.borderPrimaryColor};
   display: flex;
   padding: 20px 30px;
 
@@ -44,7 +44,7 @@ export const RightContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: ${({ theme }) => theme.fontColorSecondary};
+  color: ${({ theme }) => theme.fontPrimaryColor};
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 18px;
 `;

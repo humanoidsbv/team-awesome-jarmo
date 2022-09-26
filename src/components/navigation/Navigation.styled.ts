@@ -7,7 +7,7 @@ type MenuProps = {
 export const Nav = styled.div`
   @media (${({ theme }) => theme.tablet}) {
     align-items: center;
-    background-color: ${({ theme }) => theme.backgroundSecondary};
+    background-color: ${({ theme }) => theme.backgroundSecondaryColor};
     flex-direction: column;
     height: 100%;
     left: ${(props: MenuProps) => (props.isActive ? "0" : "-100%")};
