@@ -1,28 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { EntryProps } from "../../types/types";
-import { ErrorScreen } from "../error-screen/ErrorScreen";
-import { getTimeEntries } from "../../services/time-entries";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
+import * as Types from "../../types/types";
+import { TimeEntryModal } from "../time-entry-modal";
 
-export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState<EntryProps[]>([]);
-  const [dataError, setDataError] = useState(false);
-
-  async function fetchTimeEntries() {
-    const awaitTimeEntries = await getTimeEntries();
-
-    if (awaitTimeEntries instanceof Error) {
-      setDataError(true);
-      return;
-    }
-
-    setTimeEntries(awaitTimeEntries);
-  }
-
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
+export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
+  const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
+  const [isModalActive, setIsModalActive] = useState(false);
 
   const handleClick = () => {
     setTimeEntries([
@@ -39,7 +24,13 @@ export const TimeEntries = () => {
   return (
     <>
       <Styled.Main>
-        {dataError && <ErrorScreen />}
+        <button type="button" onClick={() => setIsModalActive(true)}>
+          Open modal
+        </button>
+
+        <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
+          <p>Test</p>
+        </TimeEntryModal>
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
