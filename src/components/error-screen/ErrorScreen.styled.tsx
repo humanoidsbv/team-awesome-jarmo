@@ -11,5 +11,5 @@ export const Container = styled.div`
 export const Message = styled.h2`
   font-size: 20px;
   font-family: ${({ theme }) => theme.fontSecondary};
-  color: ${({ theme }) => theme.fontColorSecondary};
+  color: ${({ theme }) => theme.fontPrimaryColor};
 `;
