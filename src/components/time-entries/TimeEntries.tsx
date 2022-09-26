@@ -28,9 +28,7 @@ export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
           Open modal
         </button>
 
-        <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
-          <p>Test</p>
-        </TimeEntryModal>
+        <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)} />
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {
