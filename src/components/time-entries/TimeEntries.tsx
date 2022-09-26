@@ -1,28 +1,29 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { EntryProps } from "../../types/types";
-import { ErrorScreen } from "../error-screen/ErrorScreen";
-import { getTimeEntries } from "../../services/time-entries";
+// import { ErrorScreen } from "../error-screen/ErrorScreen";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
+import * as Types from "../../types/types";
+import { TimeEntryModal } from "../time-entry-modal";
 
-export const TimeEntries = () => {
-  const [timeEntries, setTimeEntries] = useState<EntryProps[]>([]);
-  const [dataError, setDataError] = useState(false);
+export const TimeEntries = ({ timeEntriesAtBuild }: Types.AtBuildProps) => {
+  const [timeEntries, setTimeEntries] = useState<EntryProps[]>(timeEntriesAtBuild);
+  // const [dataError, setDataError] = useState(false);
 
-  async function fetchTimeEntries() {
-    const awaitTimeEntries = await getTimeEntries();
+  // async function fetchTimeEntries() {
+  //   const awaitTimeEntries = await getTimeEntries();
 
-    if (awaitTimeEntries instanceof Error) {
-      setDataError(true);
-      return;
-    }
+  //   if (awaitTimeEntries instanceof Error) {
+  //     setDataError(true);
+  //     return;
+  //   }
 
-    setTimeEntries(awaitTimeEntries);
-  }
+  //   setTimeEntries(awaitTimeEntries);
+  // }
 
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
+  // useEffect(() => {
+  //   fetchTimeEntries();
+  // }, []);
 
   const handleClick = () => {
     setTimeEntries([
@@ -39,7 +40,8 @@ export const TimeEntries = () => {
   return (
     <>
       <Styled.Main>
-        {dataError && <ErrorScreen />}
+        <TimeEntryModal />
+        {/* {dataError && <ErrorScreen />} */}
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {

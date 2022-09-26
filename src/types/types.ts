@@ -4,3 +4,7 @@ export interface EntryProps {
   endTime: string;
   id: number;
 }
+
+export interface AtBuildProps {
+  timeEntriesAtBuild: EntryProps[];
+}
