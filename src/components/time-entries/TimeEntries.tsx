@@ -3,11 +3,9 @@ import { EntryProps } from "../../types/types";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
-import { TimeEntryModal } from "../time-entry-modal";
 
 export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
-  const [isModalActive, setIsModalActive] = useState(false);
 
   const handleClick = () => {
     setTimeEntries([
@@ -24,11 +22,6 @@ export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
   return (
     <>
       <Styled.Main>
-        <button type="button" onClick={() => setIsModalActive(true)}>
-          Open modal
-        </button>
-
-        <TimeEntryModal isActive={isModalActive} onClose={() => setIsModalActive(false)} />
         {timeEntries
           ?.sort((a, b) => new Date(b.startTime).valueOf() - new Date(a.startTime).valueOf())
           .map((timeEntry, i, arr) => {

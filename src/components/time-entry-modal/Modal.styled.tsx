@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Button = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+`;
+
 export const ModalBackDrop = styled.div`
   align-items: center;
   background: rgba(75, 84, 100, 0.8);
@@ -13,10 +19,13 @@ export const ModalBackDrop = styled.div`
 `;
 
 export const Modal = styled.div`
+  display: flex;
+  align-items: flex-start;
   background: #ffffff;
   border-radius: 4px;
   width: 560px;
   height: 436px;
+  padding: 20px;
 
   @media (${({ theme }) => theme.tablet}) {
     height: 100%;
@@ -24,6 +33,8 @@ export const Modal = styled.div`
   }
 `;
 
-export const Button = styled.button``;
-
-export const ButtonHandler = styled.div``;
+export const Title = styled.h2`
+  color: ${({ theme }) => theme.fontSecondaryColor};
+  font-family: ${({ theme }) => theme.fontSecondary};
+  font-size: 24px;
+`;

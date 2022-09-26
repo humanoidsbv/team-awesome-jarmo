@@ -1,1 +1,1 @@
-export { TimeEntryModal } from "./TimeEntryModal";
+export { Modal } from "./Modal";
