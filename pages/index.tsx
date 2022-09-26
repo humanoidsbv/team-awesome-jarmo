@@ -9,22 +9,22 @@ import { getTimeEntries } from "../src/services/time-entries";
 import * as Types from "../src/types/types";
 
 export const getServerSideProps = async () => {
-  const timeEntriesAtBuild = await getTimeEntries();
+  const initialTimeEntries = await getTimeEntries();
 
   return {
     props: {
-      timeEntriesAtBuild,
+      initialTimeEntries,
     },
   };
 };
 
-const Homepage = ({ timeEntriesAtBuild }: Types.AtBuildProps) => {
+const Homepage = ({ initialTimeEntries }: Types.AtBuildProps) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
       <SubHeader title="Timesheets" amount={12} subtitle="entries" />
-      <TimeEntries timeEntriesAtBuild={timeEntriesAtBuild} />
+      <TimeEntries initialTimeEntries={initialTimeEntries} />
     </ThemeProvider>
   );
 };

@@ -6,5 +6,5 @@ export interface EntryProps {
 }
 
 export interface AtBuildProps {
-  timeEntriesAtBuild: EntryProps[];
+  initialTimeEntries: EntryProps[];
 }
