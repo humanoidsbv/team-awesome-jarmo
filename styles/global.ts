@@ -6,6 +6,12 @@ box-sizing: border border-box;
 margin: 0;
 }
 
+button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
 @font-face {
 font-family: 'Bello-Script';
 src: url(/fonts/bello-script.ttf) format("truetype");
