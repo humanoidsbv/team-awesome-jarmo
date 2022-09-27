@@ -3,6 +3,8 @@ export const theme = {
   backgroundSecondaryColor: "#4f88ef",
   borderPrimaryColor: "#E6EAEE",
   buttonPrimaryColor: "#37b047",
+  buttonBorder: "none",
+  buttonCursor: "pointer",
   fontPrimary: "Bello-Script",
   fontSecondary: "Proxima Nova",
   fontPrimaryColor: "#4B5464",

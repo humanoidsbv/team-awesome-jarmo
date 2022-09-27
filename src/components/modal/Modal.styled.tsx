@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   background: none;
-  border: none;
-  cursor: pointer;
+  border: ${({ theme }) => theme.buttonBorder};
+  cursor: ${({ theme }) => theme.buttonCursor};
 `;
 
 export const ModalBackDrop = styled.div`
@@ -19,13 +19,14 @@ export const ModalBackDrop = styled.div`
 `;
 
 export const Modal = styled.div`
-  display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   background: #ffffff;
   border-radius: 4px;
-  width: 560px;
+  display: flex;
   height: 436px;
+  justify-content: space-between;
   padding: 20px;
+  width: 560px;
 
   @media (${({ theme }) => theme.tablet}) {
     height: 100%;
@@ -37,4 +38,5 @@ export const Title = styled.h2`
   color: ${({ theme }) => theme.fontSecondaryColor};
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 24px;
+  font-weight: 400;
 `;
