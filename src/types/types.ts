@@ -7,6 +7,8 @@ export interface EntryProps {
 
 export interface AtBuildProps {
   initialTimeEntries: EntryProps[];
+  isModalActive: boolean;
+  setIsModalActive: boolean;
 }
 
 export interface ModalProps {

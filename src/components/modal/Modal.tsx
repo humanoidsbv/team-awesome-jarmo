@@ -1,14 +1,15 @@
 import { createPortal } from "react-dom";
+import React from "react";
 import * as Styled from "./Modal.styled";
 import CloseIcon from "../../../public/icons/closeicon.svg";
-import { Form } from "../form/Form";
 
 interface ModalProps {
   isActive: boolean;
   onClose: () => void;
+  children: React.ReactElement;
 }
 
-export const Modal = ({ isActive, onClose }: ModalProps) =>
+export const Modal = ({ isActive, onClose, children }: ModalProps) =>
   isActive
     ? createPortal(
         // eslint-disable-next-line react/jsx-indent
@@ -20,9 +21,7 @@ export const Modal = ({ isActive, onClose }: ModalProps) =>
                 <CloseIcon />
               </Styled.Button>
             </Styled.ModalWrapper>
-            <Styled.FormContainer>
-              <Form />
-            </Styled.FormContainer>
+            <Styled.FormContainer>{children}</Styled.FormContainer>
           </Styled.Modal>
         </Styled.ModalBackDrop>,
         document.body,

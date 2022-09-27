@@ -1,5 +1,6 @@
 import { ThemeProvider } from "styled-components";
 
+import { useState } from "react";
 import { Header } from "../src/components/header/Header";
 import { SubHeader } from "../src/components/sub-header/SubHeader";
 import { TimeEntries } from "../src/components/time-entries/TimeEntries";
@@ -19,12 +20,14 @@ export const getServerSideProps = async () => {
 };
 
 const Homepage = ({ initialTimeEntries }: Types.AtBuildProps) => {
+  const [isModalActive, setIsModalActive] = useState(false);
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
-      <SubHeader title="Timesheets" amount={12} subtitle="entries" />
-      <TimeEntries initialTimeEntries={initialTimeEntries} />
+      <SubHeader title="Timesheets" amount={12} subtitle="entries" isModalActive={isModalActive} />
+      <TimeEntries initialTimeEntries={initialTimeEntries} setIsModalActive={setIsModalActive} />
     </ThemeProvider>
   );
 };

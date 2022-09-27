@@ -20,6 +20,10 @@ export const FormContainer = styled.div`
   }
 `;
 
+export const Hours = styled.h2`
+  font-size: 18px;
+`;
+
 export const Input = styled.input`
   font-family: ${({ theme }) => theme.fontSecondary};
   width: 100%;

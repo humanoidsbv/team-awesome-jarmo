@@ -1,16 +1,14 @@
-import { useState } from "react";
 import { Button } from "../button/Button";
 import * as Styled from "./SubHeader.styled";
-import { Modal } from "../modal/Modal";
 
 type SubHeaderProps = {
   title: string;
   amount: number;
   subtitle: string;
+  setIsModalActive: any;
 };
 
-export const SubHeader = ({ title, amount, subtitle }: SubHeaderProps) => {
-  const [isModalActive, setIsModalActive] = useState(false);
+export const SubHeader = ({ title, amount, subtitle, setIsModalActive }: SubHeaderProps) => {
   return (
     <Styled.SubHeader>
       <Styled.EntryContainer>
@@ -23,7 +21,6 @@ export const SubHeader = ({ title, amount, subtitle }: SubHeaderProps) => {
       <Styled.ButtonWrapper>
         <Button icon label="New time entry" onClick={() => setIsModalActive(true)} />
       </Styled.ButtonWrapper>
-      <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)} />
     </Styled.SubHeader>
   );
 };

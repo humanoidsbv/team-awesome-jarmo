@@ -3,11 +3,17 @@ import { EntryProps } from "../../types/types";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
+import { Modal } from "../modal/Modal";
+import { Form } from "../form";
 
-export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
+export const TimeEntries = ({
+  initialTimeEntries,
+  isModalActive,
+  setIsModalActive,
+}: Types.AtBuildProps) => {
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
 
-  const handleClick = () => {
+  const createTimeEntry = () => {
     setTimeEntries([
       ...timeEntries,
       {
@@ -53,10 +59,9 @@ export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
               </div>
             );
           })}
-
-        <button type="button" onClick={handleClick}>
-          Add time entry
-        </button>
+        <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
+          <Form />
+        </Modal>
       </Styled.Main>
     </>
   );
