@@ -9,9 +9,8 @@ interface ButtonProps {
 }
 
 export const Button = ({ icon, onClick, label, variant }: ButtonProps) => (
-  <Styled.Button onClick={onClick}>
+  <Styled.Button variant={variant} onClick={onClick}>
     {icon ? <PlusIcon /> : null}
     {label}
-    {variant}
   </Styled.Button>
 );
