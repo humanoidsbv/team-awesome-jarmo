@@ -26,7 +26,7 @@ export const SubHeader = styled.div`
   }
 `;
 
-export const EntrieHolder = styled.div`
+export const EntryContainer = styled.div`
   align-items: center;
   display: flex;
   flex: 50%;
@@ -37,7 +37,7 @@ export const EntrieHolder = styled.div`
   }
 `;
 
-export const ButtonHolder = styled.div`
+export const ButtonWrapper = styled.div`
   display: flex;
   flex: 50%;
   justify-content: flex-end;

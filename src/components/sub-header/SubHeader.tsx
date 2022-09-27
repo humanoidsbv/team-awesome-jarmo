@@ -13,16 +13,16 @@ export const SubHeader = ({ title, amount, subtitle }: SubHeaderProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
   return (
     <Styled.SubHeader>
-      <Styled.EntrieHolder>
+      <Styled.EntryContainer>
         <Styled.Title>{title}</Styled.Title>
         <Styled.SubTitle>
           <Styled.Divider>|</Styled.Divider>
           {amount} {subtitle}
         </Styled.SubTitle>
-      </Styled.EntrieHolder>
-      <Styled.ButtonHolder>
+      </Styled.EntryContainer>
+      <Styled.ButtonWrapper>
         <Button icon label="New time entry" onClick={() => setIsModalActive(true)} />
-      </Styled.ButtonHolder>
+      </Styled.ButtonWrapper>
       <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)} />
     </Styled.SubHeader>
   );

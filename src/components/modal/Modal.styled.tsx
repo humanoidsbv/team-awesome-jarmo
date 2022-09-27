@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
-  background: none;
-  border: ${({ theme }) => theme.buttonBorder};
-  cursor: ${({ theme }) => theme.buttonCursor};
-`;
+export const Button = styled.button``;
 
 export const ModalBackDrop = styled.div`
   align-items: center;
@@ -29,7 +25,8 @@ export const Modal = styled.div`
   width: 560px;
 
   @media (${({ theme }) => theme.tablet}) {
-    height: 100%;
+    padding-top: 50px;
+    height: 100vh;
     width: 100vw;
   }
 `;
@@ -39,4 +36,8 @@ export const Title = styled.h2`
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 24px;
   font-weight: 400;
+
+  @media (${({ theme }) => theme.tablet}) {
+    font-size: 18px;
+  }
 `;

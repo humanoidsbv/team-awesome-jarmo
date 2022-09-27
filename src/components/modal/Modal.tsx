@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import * as Styled from "./Modal.styled";
-import CloseIcon from "../../../public/icons/closeIcon.svg";
+import CloseIcon from "../../../public/icons/closeicon.svg";
 
 interface ModalProps {
   isActive: boolean;
