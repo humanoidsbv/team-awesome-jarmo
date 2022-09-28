@@ -21,7 +21,7 @@ export const Modal = ({ isActive, onClose, children }: ModalProps) =>
                 <CloseIcon />
               </Styled.Button>
             </Styled.ModalWrapper>
-            <Styled.FormContainer>{children}</Styled.FormContainer>
+            <Styled.ModalContainer>{children}</Styled.ModalContainer>
           </Styled.Modal>
         </Styled.ModalBackDrop>,
         document.body,

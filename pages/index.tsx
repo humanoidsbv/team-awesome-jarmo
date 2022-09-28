@@ -22,12 +22,20 @@ export const getServerSideProps = async () => {
 const Homepage = ({ initialTimeEntries }: Types.AtBuildProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
 
+  const handleModal = () => {
+    setIsModalActive(!isModalActive);
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header />
-      <SubHeader title="Timesheets" amount={12} subtitle="entries" isModalActive={isModalActive} />
-      <TimeEntries initialTimeEntries={initialTimeEntries} setIsModalActive={setIsModalActive} />
+      <SubHeader title="Timesheets" amount={12} subtitle="entries" handleModal={handleModal} />
+      <TimeEntries
+        initialTimeEntries={initialTimeEntries}
+        isModalActive={isModalActive}
+        handleModal={handleModal}
+      />
     </ThemeProvider>
   );
 };

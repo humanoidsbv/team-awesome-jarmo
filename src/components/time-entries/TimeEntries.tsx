@@ -4,12 +4,12 @@ import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
 import { Modal } from "../modal/Modal";
-import { Form } from "../form";
+import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
 
 export const TimeEntries = ({
   initialTimeEntries,
   isModalActive,
-  setIsModalActive,
+  handleModal,
 }: Types.AtBuildProps) => {
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
 
@@ -24,7 +24,6 @@ export const TimeEntries = ({
       },
     ]);
   };
-
   return (
     <>
       <Styled.Main>
@@ -59,8 +58,13 @@ export const TimeEntries = ({
               </div>
             );
           })}
-        <Modal isActive={isModalActive} onClose={() => setIsModalActive(false)}>
-          <Form />
+        <Modal isActive={isModalActive} onClose={() => handleModal()}>
+          <TimeEntryForm
+            timeEntries={timeEntries}
+            setTimeEntries={setTimeEntries}
+            creatTimeEntry={createTimeEntry}
+            handleModal={handleModal}
+          />
         </Modal>
       </Styled.Main>
     </>

@@ -12,6 +12,10 @@ border: none;
 cursor: pointer;
 }
 
+form {
+	padding: 0;
+}
+
 input {
 	margin: 5px 0px;
 	padding: none;
@@ -20,6 +24,7 @@ input {
 	border-radius: 4px;
 	
 }
+
 
 @font-face {
 font-family: 'Bello-Script';

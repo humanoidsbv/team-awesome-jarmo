@@ -1,9 +1,21 @@
-import React, { useState } from "react";
-import * as Styled from "./Form.styled";
+import React, { useState, Dispatch } from "react";
+import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
+import { EntryProps } from "../../types/types";
 
-export const Form = () => {
-  const [newTimeEntry, setNewTimeEntry] = useState({ client: "", startTime: "", endTime: "" });
+interface FormProps {
+  timeEntries: EntryProps[];
+  setTimeEntries: Dispatch<EntryProps[]>;
+  handleModal: () => void;
+}
+
+export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
+  const [newTimeEntry, setNewTimeEntry] = useState({
+    client: "",
+    startTime: "",
+    endTime: "",
+    date: "",
+  });
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({
@@ -12,8 +24,27 @@ export const Form = () => {
     });
   };
 
+  const formatTime = (date: string, time: string) => {
+    const formattedDate = new Date(
+      // eslint-disable-next-line prefer-template
+      `${date.toLocaleString() + "T" + time.toLocaleString() + ":00.000Z"}`,
+    );
+
+    return formattedDate;
+  };
+
   const handleSubmit = (event: React.MouseEvent<HTMLInputElement>) => {
     event.preventDefault();
+    setTimeEntries([
+      ...timeEntries,
+      {
+        ...newTimeEntry,
+        id: Math.random(),
+        startTime: `${formatTime(newTimeEntry.date, newTimeEntry.startTime)}`,
+        endTime: `${formatTime(newTimeEntry.date, newTimeEntry.endTime)}`,
+      },
+    ]);
+    handleModal();
   };
 
   return (
@@ -34,7 +65,11 @@ export const Form = () => {
 
       <Styled.Label>
         Date
-        <Styled.Input type="date" />
+        <Styled.Input
+          type="date"
+          value={newTimeEntry.date ?? ""}
+          onChange={(event) => handleChange("date", event)}
+        />
       </Styled.Label>
       <Styled.FormContainer>
         <Styled.Label>

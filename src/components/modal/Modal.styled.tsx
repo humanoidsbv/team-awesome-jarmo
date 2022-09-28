@@ -21,7 +21,7 @@ export const ModalWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const FormContainer = styled.div`
+export const ModalContainer = styled.div`
   padding-top: 20px;
 `;
 

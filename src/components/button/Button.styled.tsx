@@ -17,8 +17,7 @@ export const Button = styled.button<ButtonProps>`
   gap: 15px;
   height: 40px;
   justify-content: center;
-  width: 235px;
-  height: 40px;
+  padding: 0 40px;
 
   :hover {
     background: #1e990a;
@@ -27,9 +26,11 @@ export const Button = styled.button<ButtonProps>`
   ${({ variant }) =>
     variant === "secondary" &&
     css`
-      color: ${({ theme }) => theme.fontPrimaryColor};
+      background: ${({ theme }) => theme.buttonSecondaryColor};
       border: 1px solid #e6eaee;
-      background-color: ${({ theme }) => theme.buttonThirdColor};
+      color: ${({ theme }) => theme.fontPrimaryColor};
+      padding: 0 60px;
+
       :hover {
         background: ${({ theme }) => theme.borderPrimaryColor};
       }

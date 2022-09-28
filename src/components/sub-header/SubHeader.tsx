@@ -5,10 +5,10 @@ type SubHeaderProps = {
   title: string;
   amount: number;
   subtitle: string;
-  setIsModalActive: any;
+  handleModal: () => void;
 };
 
-export const SubHeader = ({ title, amount, subtitle, setIsModalActive }: SubHeaderProps) => {
+export const SubHeader = ({ title, amount, subtitle, handleModal }: SubHeaderProps) => {
   return (
     <Styled.SubHeader>
       <Styled.EntryContainer>
@@ -19,7 +19,7 @@ export const SubHeader = ({ title, amount, subtitle, setIsModalActive }: SubHead
         </Styled.SubTitle>
       </Styled.EntryContainer>
       <Styled.ButtonWrapper>
-        <Button icon label="New time entry" onClick={() => setIsModalActive(true)} />
+        <Button hasIcon label="New time entry" onClick={() => handleModal()} />
       </Styled.ButtonWrapper>
     </Styled.SubHeader>
   );

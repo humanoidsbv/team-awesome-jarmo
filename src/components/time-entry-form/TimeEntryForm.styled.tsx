@@ -4,13 +4,11 @@ export const ButtonContainer = styled.div`
   padding-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   gap: 14px;
 `;
 
-export const Form = styled.form`
-  padding: 0;
-`;
+export const Form = styled.form``;
 
 export const FormContainer = styled.div`
   display: flex;
