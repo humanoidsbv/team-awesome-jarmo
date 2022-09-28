@@ -45,6 +45,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
       },
     ]);
     handleModal();
+    setNewTimeEntry({});
   };
 
   return (
