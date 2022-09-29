@@ -3,6 +3,7 @@ export interface EntryProps {
   startTime: string;
   endTime: string;
   id: number;
+  removeEntry: () => void;
 }
 
 export interface AtBuildProps {

@@ -18,6 +18,7 @@ type NewTimeEntry = {
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<NewTimeEntry[{}]>({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({
@@ -50,14 +51,11 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
     setNewTimeEntry({});
   };
 
-  const formRef = useRef<HTMLFormElement>(null);
-
   return (
     <Styled.Form ref={formRef}>
       <Styled.Label>
         Client
         <Styled.Input
-          required
           name="client"
           type="text"
           value={newTimeEntry.client ?? ""}
@@ -85,6 +83,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             name="startTime"
             value={newTimeEntry.startTime ?? ""}
             onChange={(event) => handleChange("startTime", event)}
+            required
           />
         </Styled.Label>
         <Styled.Label>
@@ -94,6 +93,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             name="endTime"
             value={newTimeEntry.endTime ?? ""}
             onChange={(event) => handleChange("endTime", event)}
+            required
           />
         </Styled.Label>
         <Styled.LabelTotal>
@@ -101,7 +101,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
         </Styled.LabelTotal>
       </Styled.FormContainer>
       <Styled.ButtonContainer>
-        <Button label="cancel" variant="secondary" />
+        <Button label="cancel" variant="secondary" onClick={handleModal} />
         <Button label="new time entry" onClick={handleSubmit} />
       </Styled.ButtonContainer>
     </Styled.Form>

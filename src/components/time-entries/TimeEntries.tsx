@@ -13,6 +13,14 @@ export const TimeEntries = ({
 }: Types.AtBuildProps) => {
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
 
+  const removeEntry = (entry: EntryProps) => {
+    const removedEntry = timeEntries.indexOf(entry);
+    setTimeEntries([
+      ...timeEntries.slice(0, removedEntry),
+      ...timeEntries.slice(removedEntry + 1, timeEntries.length),
+    ]);
+  };
+
   return (
     <>
       <Styled.Main>
@@ -43,6 +51,7 @@ export const TimeEntries = ({
                   client={timeEntry.client}
                   startTime={timeEntry.startTime}
                   stopTime={timeEntry.endTime}
+                  removeEntry={() => removeEntry(timeEntry)}
                 />
               </div>
             );
