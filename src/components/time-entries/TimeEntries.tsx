@@ -13,17 +13,6 @@ export const TimeEntries = ({
 }: Types.AtBuildProps) => {
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
 
-  const createTimeEntry = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: Math.random(),
-        client: "Port of Rotterdam",
-        startTime: "2022-09-21T16:00:00.000Z",
-        endTime: "2022-09-21T22:00:00.000Z",
-      },
-    ]);
-  };
   return (
     <>
       <Styled.Main>
@@ -62,7 +51,6 @@ export const TimeEntries = ({
           <TimeEntryForm
             timeEntries={timeEntries}
             setTimeEntries={setTimeEntries}
-            creatTimeEntry={createTimeEntry}
             handleModal={handleModal}
           />
         </Modal>

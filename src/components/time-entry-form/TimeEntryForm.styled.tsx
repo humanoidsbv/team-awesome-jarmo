@@ -1,21 +1,19 @@
 import styled from "styled-components";
 
 export const ButtonContainer = styled.div`
-  padding-top: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
   gap: 14px;
+  justify-content: center;
+  padding-top: 20px;
 `;
 
 export const Form = styled.form``;
 
 export const FormContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   gap: 20px;
-  @media (${({ theme }) => theme.tablet}) {
-  }
+  justify-content: space-between;
 `;
 
 export const Hours = styled.h2`
@@ -24,22 +22,22 @@ export const Hours = styled.h2`
 
 export const Input = styled.input`
   font-family: ${({ theme }) => theme.fontSecondary};
-  width: 100%;
-  padding: 10px 13px 10px 15px;
   gap: 10px;
+  padding: 10px 13px 10px 15px;
+  width: 100%;
 `;
 
 export const Label = styled.label`
-  padding: 10px 0px;
-  font-family: ${({ theme }) => theme.fontSecondary};
   color: ${({ theme }) => theme.fontPrimaryColor};
+  font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 14px;
+  padding: 10px 0px;
 `;
 
 export const LabelTotal = styled.label`
-  padding: 10px 0px;
-  font-family: ${({ theme }) => theme.fontSecondary};
   color: ${({ theme }) => theme.fontPrimaryColor};
-  margin-left: auto;
+  font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 14px;
+  margin-left: auto;
+  padding: 10px 0px;
 `;

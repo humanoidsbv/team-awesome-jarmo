@@ -13,15 +13,15 @@ cursor: pointer;
 }
 
 form {
-	padding: 0;
+padding: 0;
 }
 
 input {
-	margin: 5px 0px;
-	padding: none;
-	box-sizing: border-box;
-	border: 1px solid #E6EAEE;
-	border-radius: 4px;
+margin: 5px 0px;
+padding: none;
+box-sizing: border-box;
+border: 1px solid #E6EAEE;
+border-radius: 4px;
 	
 }
 
