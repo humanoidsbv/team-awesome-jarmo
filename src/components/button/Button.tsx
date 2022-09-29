@@ -1,17 +1,16 @@
-import * as Styled from "./Button.styled";
 import PlusIcon from "../../../public/icons/plus.svg";
+import * as Styled from "./Button.styled";
 
 interface ButtonProps {
   label: string;
-  icon?: boolean;
+  hasIcon?: boolean;
   onClick?: () => void;
   variant?: "primary" | "secondary";
 }
 
-export const Button = ({ icon, onClick, label, variant }: ButtonProps) => (
-  <Styled.Button onClick={onClick}>
-    {icon ? <PlusIcon /> : null}
+export const Button = ({ hasIcon, onClick, label, variant }: ButtonProps) => (
+  <Styled.Button variant={variant} onClick={onClick}>
+    {hasIcon ? <PlusIcon /> : null}
     {label}
-    {variant}
   </Styled.Button>
 );

@@ -3,21 +3,15 @@ import { EntryProps } from "../../types/types";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
+import { Modal } from "../modal/Modal";
+import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
 
-export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
+export const TimeEntries = ({
+  initialTimeEntries,
+  isModalActive,
+  handleModal,
+}: Types.AtBuildProps) => {
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
-
-  const handleClick = () => {
-    setTimeEntries([
-      ...timeEntries,
-      {
-        id: Math.random(),
-        client: "Port of Rotterdam",
-        startTime: "2022-09-21T16:00:00.000Z",
-        endTime: "2022-09-21T22:00:00.000Z",
-      },
-    ]);
-  };
 
   return (
     <>
@@ -53,10 +47,13 @@ export const TimeEntries = ({ initialTimeEntries }: Types.AtBuildProps) => {
               </div>
             );
           })}
-
-        <button type="button" onClick={handleClick}>
-          Add time entry
-        </button>
+        <Modal isActive={isModalActive} onClose={() => handleModal()}>
+          <TimeEntryForm
+            timeEntries={timeEntries}
+            setTimeEntries={setTimeEntries}
+            handleModal={handleModal}
+          />
+        </Modal>
       </Styled.Main>
     </>
   );

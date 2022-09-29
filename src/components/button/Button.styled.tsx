@@ -17,7 +17,7 @@ export const Button = styled.button<ButtonProps>`
   gap: 15px;
   height: 40px;
   justify-content: center;
-  width: 190px;
+  padding: 0 40px;
 
   :hover {
     background: #1e990a;
@@ -26,8 +26,14 @@ export const Button = styled.button<ButtonProps>`
   ${({ variant }) =>
     variant === "secondary" &&
     css`
-      border: 10px solid tomato;
-      color: tomato;
+      background: ${({ theme }) => theme.buttonSecondaryColor};
+      border: 1px solid #e6eaee;
+      color: ${({ theme }) => theme.fontPrimaryColor};
+      padding: 0 60px;
+
+      :hover {
+        background: ${({ theme }) => theme.borderPrimaryColor};
+      }
     `}
   @media (${({ theme }) => theme.tablet}) {
     width: 100%;

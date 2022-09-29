@@ -14,13 +14,24 @@ export const ModalBackDrop = styled.div`
   top: 0;
 `;
 
-export const Modal = styled.div`
+export const ModalWrapper = styled.div`
   align-items: baseline;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const ModalContainer = styled.div`
+  padding-top: 20px;
+`;
+
+export const Modal = styled.div`
   background: #ffffff;
   border-radius: 4px;
   display: flex;
+  display: flex;
+  flex-direction: column;
   height: 436px;
-  justify-content: space-between;
   padding: 20px;
   width: 560px;
 

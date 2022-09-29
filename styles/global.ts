@@ -7,10 +7,24 @@ margin: 0;
 }
 
 button {
-	background: none;
-	border: none;
-	cursor: pointer;
+background: none;
+border: none;
+cursor: pointer;
 }
+
+form {
+padding: 0;
+}
+
+input {
+margin: 5px 0px;
+padding: none;
+box-sizing: border-box;
+border: 1px solid #E6EAEE;
+border-radius: 4px;
+	
+}
+
 
 @font-face {
 font-family: 'Bello-Script';
