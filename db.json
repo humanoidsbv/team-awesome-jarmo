@@ -20,6 +20,18 @@
       "id": 3,
       "startTime": "2020-03-12T09:30:00.000Z",
       "activity": "Development"
+    },
+    {
+      "id": 0.7169702564582736,
+      "client": "",
+      "startTime": "",
+      "endTime": ""
+    },
+    {
+      "id": 0.02079070510312464,
+      "client": "",
+      "startTime": "",
+      "endTime": ""
     }
   ]
 }

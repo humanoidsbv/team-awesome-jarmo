@@ -2,6 +2,7 @@ import React, { useState, Dispatch, useRef } from "react";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
 import { EntryProps } from "../../types/types";
+import { PostTimeEntries } from "../../services/time-entries/PostTimeEntries";
 
 interface FormProps {
   timeEntries: EntryProps[];
@@ -49,6 +50,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
     ]);
     handleModal();
     setNewTimeEntry({});
+    PostTimeEntries();
   };
 
   return (
