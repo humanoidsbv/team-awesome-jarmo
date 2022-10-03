@@ -2,7 +2,7 @@ import React, { useState, Dispatch, useRef } from "react";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
 import { EntryProps } from "../../types/types";
-import { PostTimeEntries } from "../../services/time-entries/PostTimeEntries";
+import { postTimeEntries } from "../../services/time-entries/postTimeEntries";
 
 interface FormProps {
   timeEntries: EntryProps[];
@@ -10,15 +10,17 @@ interface FormProps {
   handleModal: () => void;
 }
 
-type NewTimeEntry = {
-  client: string;
-  startTime: string;
-  endTime: string;
-  date: string;
+const entryObject = {
+  client: "",
+  startTime: "",
+  endTime: "",
+  date: "",
+  id: "",
 };
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<NewTimeEntry[{}]>({});
+  const [newTimeEntry, setNewTimeEntry] = useState<EntryProps>(entryObject);
+
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,29 +30,27 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
     });
   };
 
-  const formatTime = (date: string, time: string) => {
-    const formattedDate = new Date(
-      // eslint-disable-next-line prefer-template
-      `${date.toLocaleString() + "T" + time.toLocaleString() + ":00.000Z"}`,
-    );
+  // const formatTime = (date: string, time: string) => {
+  //   const formattedDate = new Date(`${date}T${time}:00.000Z`);
+  //   console.log(formattedDate);
+  //   return formattedDate;
+  // };
 
-    return formattedDate;
-  };
+  const handleSubmit = async () => {
+    const formattedTimeEntry = {
+      client: newTimeEntry.client,
+      startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
+      endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
+      activity: "development",
+      id: "",
+      date: "",
+    };
 
-  const handleSubmit = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setTimeEntries([
-      ...timeEntries,
-      {
-        ...newTimeEntry,
-        id: Math.random(),
-        startTime: `${formatTime(newTimeEntry.date, newTimeEntry.startTime)}`,
-        endTime: `${formatTime(newTimeEntry.date, newTimeEntry.endTime)}`,
-      },
-    ]);
+    const postedTimeEntry = await postTimeEntries(formattedTimeEntry);
+
+    setTimeEntries([...timeEntries, postedTimeEntry]);
+    setNewTimeEntry(entryObject);
     handleModal();
-    setNewTimeEntry({});
-    PostTimeEntries(newTimeEntry);
   };
 
   return (

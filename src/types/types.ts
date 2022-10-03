@@ -1,9 +1,9 @@
 export interface EntryProps {
   client: string;
+  date: string;
   startTime: string;
   endTime: string;
-  id: number;
-  removeEntry: () => void;
+  id: string;
 }
 
 export interface AtBuildProps {
