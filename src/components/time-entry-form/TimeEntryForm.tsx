@@ -50,7 +50,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
     ]);
     handleModal();
     setNewTimeEntry({});
-    PostTimeEntries();
+    PostTimeEntries(newTimeEntry);
   };
 
   return (
@@ -62,7 +62,9 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
           type="text"
           value={newTimeEntry.client ?? ""}
           onChange={(event) => handleChange("client", event)}
+          required
         />
+        <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
       </Styled.Label>
       <Styled.Label>
         Activity
@@ -75,7 +77,9 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
           type="date"
           value={newTimeEntry.date ?? ""}
           onChange={(event) => handleChange("date", event)}
+          required
         />
+        <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
       </Styled.Label>
       <Styled.FormContainer>
         <Styled.Label>
@@ -87,6 +91,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             onChange={(event) => handleChange("startTime", event)}
             required
           />
+          <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
         </Styled.Label>
         <Styled.Label>
           To
@@ -97,6 +102,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             onChange={(event) => handleChange("endTime", event)}
             required
           />
+          <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
         </Styled.Label>
         <Styled.LabelTotal>
           Total <Styled.Hours>08:00</Styled.Hours>

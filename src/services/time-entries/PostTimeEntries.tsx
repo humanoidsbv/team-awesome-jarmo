@@ -1,17 +1,12 @@
-import * as Types from "../../types/types";
+import { EntryProps } from "../../types/types";
 
-export async function PostTimeEntries(): Promise<Types.EntryProps[] | Error> {
+export async function PostTimeEntries(newTimeEntry: Promise<EntryProps[] | Error>) {
   return fetch("http://localhost:3004/timeEntries", {
     method: "POST",
-    body: JSON.stringify({
-      id: Math.random(),
-      client: "",
-      startTime: "",
-      endTime: "",
-    }),
     headers: {
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
     },
+    body: JSON.stringify(newTimeEntry),
   })
     .then(async (response) => {
       if (response.status !== 200) {
