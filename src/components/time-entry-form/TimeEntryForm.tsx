@@ -42,8 +42,6 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
       startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
       endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
       activity: "development",
-      id: "",
-      date: "",
     };
 
     const postedTimeEntry = await postTimeEntries(formattedTimeEntry);

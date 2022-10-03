@@ -15,11 +15,13 @@ export const TimeEntries = ({
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
 
   const removeEntry = (entry: EntryProps) => {
-    const removedEntry = timeEntries.indexOf(entry);
+    const removedEntry = timeEntries.filter((timeEntry) => timeEntry.id === entry.id);
+
     setTimeEntries([
       ...timeEntries.slice(0, removedEntry),
       ...timeEntries.slice(removedEntry + 1, timeEntries.length),
     ]);
+
     deleteTimeEntries(entry);
   };
 

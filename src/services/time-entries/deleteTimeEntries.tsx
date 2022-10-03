@@ -1,7 +1,7 @@
 import { EntryProps } from "../../types/types";
 
 export async function deleteTimeEntries(entry: EntryProps) {
-  return fetch(`http://localhost:3004/timeEntries/${entry.id}`, {
+  const data = await fetch(`http://localhost:3004/timeEntries/${entry.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -15,4 +15,6 @@ export async function deleteTimeEntries(entry: EntryProps) {
     .catch((error) => {
       return error;
     });
+
+  return data;
 }

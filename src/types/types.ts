@@ -1,9 +1,9 @@
 export interface EntryProps {
   client: string;
-  date: string;
+  date?: string;
   startTime: string;
   endTime: string;
-  id: string;
+  id?: string;
 }
 
 export interface AtBuildProps {
