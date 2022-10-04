@@ -21,6 +21,7 @@ const entryObject = {
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<EntryProps>(entryObject);
+  const [isFormValid, setIsFormValid] = useState(true);
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -29,6 +30,10 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
       ...newTimeEntry,
       [key]: event.target.value,
     });
+  };
+
+  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsFormValid(event.target.checkValidity());
   };
 
   const handleSubmit = async () => {
@@ -57,10 +62,11 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
           name="client"
           type="text"
           value={newTimeEntry.client ?? ""}
+          onBlur={handleBlur}
           onChange={(event) => handleChange("client", event)}
           required
         />
-        <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
+        {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
       </Styled.Label>
       <Styled.Label>
         Activity
@@ -72,10 +78,11 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
         <Styled.Input
           type="date"
           value={newTimeEntry.date ?? ""}
+          onBlur={handleBlur}
           onChange={(event) => handleChange("date", event)}
           required
         />
-        <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
+        {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
       </Styled.Label>
       <Styled.FormContainer>
         <Styled.Label>
@@ -84,10 +91,11 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             type="time"
             name="startTime"
             value={newTimeEntry.startTime ?? ""}
+            onBlur={handleBlur}
             onChange={(event) => handleChange("startTime", event)}
             required
           />
-          <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
+          {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
         </Styled.Label>
         <Styled.Label>
           To
@@ -95,10 +103,11 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             type="time"
             name="endTime"
             value={newTimeEntry.endTime ?? ""}
+            onBlur={handleBlur}
             onChange={(event) => handleChange("endTime", event)}
             required
           />
-          <Styled.ErrorMessage>* This field is required!</Styled.ErrorMessage>
+          {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
         </Styled.Label>
         <Styled.LabelTotal>
           Total <Styled.Hours>08:00</Styled.Hours>

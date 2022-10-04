@@ -13,7 +13,6 @@ export interface FormData {
   date?: string;
   startTime: string;
   endTime: string;
-  id: string;
 }
 
 export interface AtBuildProps {
