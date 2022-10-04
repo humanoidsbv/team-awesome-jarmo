@@ -1,17 +1,24 @@
 import { useState } from "react";
-import { EntryProps } from "../../types/types";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
 import { Modal } from "../modal/Modal";
 import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
+import { deleteTimeEntries } from "../../services/time-entries/delete-time-entries";
 
 export const TimeEntries = ({
   initialTimeEntries,
   isModalActive,
   handleModal,
 }: Types.AtBuildProps) => {
-  const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
+  const [timeEntries, setTimeEntries] = useState<Types.EntryApiProps[]>(initialTimeEntries);
+
+  const removeEntry = (entry: Types.EntryApiProps) => {
+    const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);
+
+    setTimeEntries(updatedEntries);
+    deleteTimeEntries(entry);
+  };
 
   return (
     <>
@@ -43,6 +50,7 @@ export const TimeEntries = ({
                   client={timeEntry.client}
                   startTime={timeEntry.startTime}
                   stopTime={timeEntry.endTime}
+                  removeEntry={() => removeEntry(timeEntry)}
                 />
               </div>
             );

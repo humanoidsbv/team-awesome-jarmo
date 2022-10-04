@@ -41,3 +41,9 @@ export const LabelTotal = styled.label`
   margin-left: auto;
   padding: 10px 0px;
 `;
+
+export const Span = styled.span`
+  color: red;
+  display: block;
+  font-size: 11px;
+`;

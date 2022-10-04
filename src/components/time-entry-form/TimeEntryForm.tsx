@@ -1,23 +1,32 @@
 import React, { useState, Dispatch, useRef } from "react";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
-import { EntryProps } from "../../types/types";
+import { EntryApiProps, EntryFormProps } from "../../types/types";
+import { postTimeEntries } from "../../services/time-entries/post-time-entries";
 
 interface FormProps {
-  timeEntries: EntryProps[];
-  setTimeEntries: Dispatch<EntryProps[]>;
+  timeEntries: EntryApiProps[];
+  setTimeEntries: Dispatch<EntryFormProps[]>;
   handleModal: () => void;
 }
 
-type NewTimeEntry = {
-  client: string;
-  startTime: string;
-  endTime: string;
-  date: string;
+const initialFormValues = {
+  activity: "",
+  client: "",
+  startTime: "",
+  endTime: "",
+  date: "",
 };
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<NewTimeEntry[{}]>({});
+  const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
+  const [isFormValid, setIsFormValid] = useState(true);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsFormValid(event.target.checkValidity());
+  };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({
@@ -26,43 +35,36 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
     });
   };
 
-  const formatTime = (date: string, time: string) => {
-    const formattedDate = new Date(
-      // eslint-disable-next-line prefer-template
-      `${date.toLocaleString() + "T" + time.toLocaleString() + ":00.000Z"}`,
-    );
+  const handleSubmit = async () => {
+    const formattedTimeEntry: EntryApiProps = {
+      client: newTimeEntry.client,
+      startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
+      endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
+      activity: newTimeEntry.activity,
+    };
 
-    return formattedDate;
-  };
+    const postedTimeEntry = await postTimeEntries(formattedTimeEntry);
 
-  const handleSubmit = (event: React.MouseEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setTimeEntries([
-      ...timeEntries,
-      {
-        ...newTimeEntry,
-        id: Math.random(),
-        startTime: `${formatTime(newTimeEntry.date, newTimeEntry.startTime)}`,
-        endTime: `${formatTime(newTimeEntry.date, newTimeEntry.endTime)}`,
-      },
-    ]);
+    setTimeEntries([...timeEntries, postedTimeEntry]);
+    setNewTimeEntry(initialFormValues);
     handleModal();
-    setNewTimeEntry({});
   };
-
-  const formRef = useRef<HTMLFormElement>(null);
 
   return (
     <Styled.Form ref={formRef}>
       <Styled.Label>
         Client
         <Styled.Input
-          required
+          minLength={3}
+          maxLength={20}
           name="client"
           type="text"
           value={newTimeEntry.client ?? ""}
+          onBlur={handleBlur}
           onChange={(event) => handleChange("client", event)}
+          required
         />
+        {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
       </Styled.Label>
       <Styled.Label>
         Activity
@@ -74,8 +76,11 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
         <Styled.Input
           type="date"
           value={newTimeEntry.date ?? ""}
+          onBlur={handleBlur}
           onChange={(event) => handleChange("date", event)}
+          required
         />
+        {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
       </Styled.Label>
       <Styled.FormContainer>
         <Styled.Label>
@@ -84,8 +89,11 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             type="time"
             name="startTime"
             value={newTimeEntry.startTime ?? ""}
+            onBlur={handleBlur}
             onChange={(event) => handleChange("startTime", event)}
+            required
           />
+          {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
         </Styled.Label>
         <Styled.Label>
           To
@@ -93,15 +101,18 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             type="time"
             name="endTime"
             value={newTimeEntry.endTime ?? ""}
+            onBlur={handleBlur}
             onChange={(event) => handleChange("endTime", event)}
+            required
           />
+          {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
         </Styled.Label>
         <Styled.LabelTotal>
           Total <Styled.Hours>08:00</Styled.Hours>
         </Styled.LabelTotal>
       </Styled.FormContainer>
       <Styled.ButtonContainer>
-        <Button label="cancel" variant="secondary" />
+        <Button label="cancel" variant="secondary" onClick={handleModal} />
         <Button label="new time entry" onClick={handleSubmit} />
       </Styled.ButtonContainer>
     </Styled.Form>

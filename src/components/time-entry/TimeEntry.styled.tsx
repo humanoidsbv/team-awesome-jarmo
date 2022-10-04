@@ -50,3 +50,10 @@ export const Hours = styled.h3`
   font-size: 14px;
   text-align: right;
 `;
+
+export const DeleteButton = styled.div`
+  cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
+`;
