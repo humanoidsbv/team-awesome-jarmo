@@ -20,11 +20,11 @@ const initialFormValues = {
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [isFormValid, setIsFormValid] = useState<boolean | undefined>(false);
 
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleBlur = () => {
     setIsFormValid(formRef.current?.checkValidity());
   };
 
@@ -63,6 +63,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
           onBlur={handleBlur}
         />
       </Styled.Label>
+
       <Styled.Label>
         Activity
         <Styled.Input type="text" />
