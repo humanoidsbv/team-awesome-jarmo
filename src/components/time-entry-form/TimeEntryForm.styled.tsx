@@ -45,5 +45,6 @@ export const LabelTotal = styled.label`
 export const Span = styled.span`
   color: red;
   display: block;
+  font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 11px;
 `;

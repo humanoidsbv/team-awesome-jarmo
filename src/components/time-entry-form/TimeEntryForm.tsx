@@ -20,12 +20,12 @@ const initialFormValues = {
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
-  const [isFormValid, setIsFormValid] = useState(true);
+  const [isFormValid, setIsFormValid] = useState(false);
 
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFormValid(event.target.checkValidity());
+    setIsFormValid(formRef.current?.checkValidity());
   };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,16 +55,13 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
       <Styled.Label>
         Client
         <Styled.Input
-          minLength={3}
-          maxLength={20}
           name="client"
           type="text"
           value={newTimeEntry.client ?? ""}
-          onBlur={handleBlur}
           onChange={(event) => handleChange("client", event)}
           required
+          onBlur={handleBlur}
         />
-        {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
       </Styled.Label>
       <Styled.Label>
         Activity
@@ -76,11 +73,10 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
         <Styled.Input
           type="date"
           value={newTimeEntry.date ?? ""}
-          onBlur={handleBlur}
           onChange={(event) => handleChange("date", event)}
           required
+          onBlur={handleBlur}
         />
-        {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
       </Styled.Label>
       <Styled.FormContainer>
         <Styled.Label>
@@ -89,11 +85,10 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             type="time"
             name="startTime"
             value={newTimeEntry.startTime ?? ""}
-            onBlur={handleBlur}
             onChange={(event) => handleChange("startTime", event)}
             required
+            onBlur={handleBlur}
           />
-          {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
         </Styled.Label>
         <Styled.Label>
           To
@@ -101,19 +96,20 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
             type="time"
             name="endTime"
             value={newTimeEntry.endTime ?? ""}
-            onBlur={handleBlur}
             onChange={(event) => handleChange("endTime", event)}
             required
+            onBlur={handleBlur}
           />
-          {!isFormValid && <Styled.Span>* This field is required!</Styled.Span>}
         </Styled.Label>
         <Styled.LabelTotal>
           Total <Styled.Hours>08:00</Styled.Hours>
         </Styled.LabelTotal>
       </Styled.FormContainer>
+      {!isFormValid && <Styled.Span>* Entry fields are required!</Styled.Span>}
+
       <Styled.ButtonContainer>
         <Button label="cancel" variant="secondary" onClick={handleModal} />
-        <Button label="new time entry" onClick={handleSubmit} />
+        <Button label="new time entry" disabled={!isFormValid} onClick={handleSubmit} />
       </Styled.ButtonContainer>
     </Styled.Form>
   );

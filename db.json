@@ -1,3 +1,25 @@
 {
-  "timeEntries": []
+  "timeEntries": [
+    {
+      "client": "Voetbal",
+      "startTime": "2200-02-22T12:12:00.000Z",
+      "endTime": "2200-02-22T05:05:00.000Z",
+      "activity": "",
+      "id": 1
+    },
+    {
+      "client": "Jarmo",
+      "startTime": "0002-02-24T22:59:00.000Z",
+      "endTime": "0002-02-24T22:44:00.000Z",
+      "activity": "",
+      "id": 2
+    },
+    {
+      "client": "Jarmo",
+      "startTime": "2200-01-22T11:00:00.000Z",
+      "endTime": "2200-01-22T22:33:00.000Z",
+      "activity": "",
+      "id": 3
+    }
+  ]
 }
