@@ -1,6 +1,6 @@
-import { EntryProps } from "../../types/types";
+import { EntryApiProps } from "../../types/types";
 
-export async function deleteTimeEntries(entry: EntryProps) {
+export async function deleteTimeEntries(entry: EntryApiProps) {
   const data = await fetch(`http://localhost:3004/timeEntries/${entry.id}`, {
     method: "DELETE",
     headers: {

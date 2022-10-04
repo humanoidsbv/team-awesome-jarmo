@@ -1,22 +1,32 @@
-export interface EntryProps {
-  activity: string;
+// Van de API
+export interface EntryApiProps {
+  activity?: string;
   client: string;
-  date?: string;
+  startTime: string;
+  endTime: string;
+  id?: string;
+}
+
+// in de front-end
+export interface EntryProps {
+  activity?: string;
+  client: string;
   startTime: string;
   endTime: string;
   id: string;
 }
 
-export interface FormData {
+// in de form
+export interface EntryFormProps {
   activity: string;
   client: string;
-  date?: string;
+  date: string;
   startTime: string;
   endTime: string;
 }
 
 export interface AtBuildProps {
-  initialTimeEntries: EntryProps[];
+  initialTimeEntries: EntryFormProps[];
   isModalActive: boolean;
   setIsModalActive?: boolean;
   handleModal: () => void;

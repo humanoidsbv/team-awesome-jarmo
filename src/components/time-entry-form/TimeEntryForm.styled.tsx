@@ -25,10 +25,6 @@ export const Input = styled.input`
   gap: 10px;
   padding: 10px 13px 10px 15px;
   width: 100%;
-
-  :invalid {
-    border-color: red;
-  }
 `;
 
 export const Label = styled.label`

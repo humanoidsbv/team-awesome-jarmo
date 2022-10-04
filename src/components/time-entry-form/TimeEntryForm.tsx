@@ -1,29 +1,32 @@
 import React, { useState, Dispatch, useRef } from "react";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
-import { EntryProps } from "../../types/types";
+import { EntryApiProps, EntryFormProps } from "../../types/types";
 import { postTimeEntries } from "../../services/time-entries/post-time-entries";
 
 interface FormProps {
-  timeEntries: EntryProps[];
-  setTimeEntries: Dispatch<EntryProps[]>;
+  timeEntries: EntryApiProps[];
+  setTimeEntries: Dispatch<EntryFormProps[]>;
   handleModal: () => void;
 }
 
-const entryObject = {
+const initialFormValues = {
   activity: "",
   client: "",
   startTime: "",
   endTime: "",
   date: "",
-  id: "",
 };
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
-  const [newTimeEntry, setNewTimeEntry] = useState<EntryProps>(entryObject);
+  const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
   const [isFormValid, setIsFormValid] = useState(true);
 
   const formRef = useRef<HTMLFormElement>(null);
+
+  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsFormValid(event.target.checkValidity());
+  };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({
@@ -32,23 +35,18 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
     });
   };
 
-  const handleBlur = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setIsFormValid(event.target.checkValidity());
-  };
-
   const handleSubmit = async () => {
-    const formattedTimeEntry = {
+    const formattedTimeEntry: EntryApiProps = {
       client: newTimeEntry.client,
       startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
       endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
       activity: newTimeEntry.activity,
-      id: "",
     };
 
     const postedTimeEntry = await postTimeEntries(formattedTimeEntry);
 
     setTimeEntries([...timeEntries, postedTimeEntry]);
-    setNewTimeEntry(entryObject);
+    setNewTimeEntry(initialFormValues);
     handleModal();
   };
 

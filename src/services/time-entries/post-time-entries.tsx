@@ -1,6 +1,6 @@
-import { EntryProps } from "../../types/types";
+import { EntryApiProps } from "../../types/types";
 
-export async function postTimeEntries(newTimeEntry: EntryProps) {
+export async function postTimeEntries(newTimeEntry: EntryApiProps) {
   const data = await fetch("http://localhost:3004/timeEntries", {
     method: "POST",
     headers: {

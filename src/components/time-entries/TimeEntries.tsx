@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { EntryProps } from "../../types/types";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
@@ -12,9 +11,9 @@ export const TimeEntries = ({
   isModalActive,
   handleModal,
 }: Types.AtBuildProps) => {
-  const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
+  const [timeEntries, setTimeEntries] = useState<Types.EntryApiProps[]>(initialTimeEntries);
 
-  const removeEntry = (entry: EntryProps) => {
+  const removeEntry = (entry: Types.EntryApiProps) => {
     const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);
 
     setTimeEntries(updatedEntries);
