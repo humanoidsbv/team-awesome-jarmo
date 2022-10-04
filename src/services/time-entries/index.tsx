@@ -1,3 +1,3 @@
-export { deleteTimeEntries } from "./deleteTimeEntries";
-export { postTimeEntries } from "./postTimeEntries";
-export { getTimeEntries } from "./getTimeEntries";
+export { deleteTimeEntries } from "./delete-time-entries";
+export { postTimeEntries } from "./post-time-entries";
+export { getTimeEntries } from "./get-time-entries";

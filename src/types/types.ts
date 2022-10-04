@@ -1,4 +1,5 @@
 export interface EntryProps {
+  activity: string;
   client: string;
   date?: string;
   startTime: string;

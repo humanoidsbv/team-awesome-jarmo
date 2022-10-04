@@ -8,7 +8,7 @@ export async function deleteTimeEntries(entry: EntryProps) {
     },
   })
     .then(async (response) => {
-      if (response.status !== 200) {
+      if (!response.ok) {
         throw new Error(await response.json());
       }
     })

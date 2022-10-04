@@ -2,7 +2,7 @@ import React, { useState, Dispatch, useRef } from "react";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
 import { EntryProps } from "../../types/types";
-import { postTimeEntries } from "../../services/time-entries/postTimeEntries";
+import { postTimeEntries } from "../../services/time-entries/post-time-entries";
 
 interface FormProps {
   timeEntries: EntryProps[];
@@ -11,6 +11,7 @@ interface FormProps {
 }
 
 const entryObject = {
+  activity: "",
   client: "",
   startTime: "",
   endTime: "",
@@ -30,18 +31,12 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
     });
   };
 
-  // const formatTime = (date: string, time: string) => {
-  //   const formattedDate = new Date(`${date}T${time}:00.000Z`);
-  //   console.log(formattedDate);
-  //   return formattedDate;
-  // };
-
   const handleSubmit = async () => {
     const formattedTimeEntry = {
       client: newTimeEntry.client,
       startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
       endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
-      activity: "development",
+      activity: newTimeEntry.activity,
     };
 
     const postedTimeEntry = await postTimeEntries(formattedTimeEntry);

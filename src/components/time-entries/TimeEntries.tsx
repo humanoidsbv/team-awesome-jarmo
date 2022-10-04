@@ -5,7 +5,7 @@ import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
 import { Modal } from "../modal/Modal";
 import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
-import { deleteTimeEntries } from "../../services/time-entries/deleteTimeEntries";
+import { deleteTimeEntries } from "../../services/time-entries/delete-time-entries";
 
 export const TimeEntries = ({
   initialTimeEntries,
@@ -15,13 +15,9 @@ export const TimeEntries = ({
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
 
   const removeEntry = (entry: EntryProps) => {
-    const removedEntry = timeEntries.filter((timeEntry) => timeEntry.id === entry.id);
+    const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id === entry.id);
 
-    setTimeEntries([
-      ...timeEntries.slice(0, removedEntry),
-      ...timeEntries.slice(removedEntry + 1, timeEntries.length),
-    ]);
-
+    setTimeEntries(updatedEntries);
     deleteTimeEntries(entry);
   };
 

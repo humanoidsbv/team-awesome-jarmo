@@ -26,7 +26,7 @@ export const Input = styled.input`
   padding: 10px 13px 10px 15px;
   width: 100%;
 
-  :invalid {
+  input:invalid {
     border-color: red;
   }
 `;
@@ -47,6 +47,10 @@ export const LabelTotal = styled.label`
 `;
 
 export const ErrorMessage = styled.span`
-  display: block;
+  display: none;
   font-size: 11px;
+
+  input:invalid {
+    display: block;
+  }
 `;
