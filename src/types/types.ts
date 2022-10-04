@@ -4,7 +4,16 @@ export interface EntryProps {
   date?: string;
   startTime: string;
   endTime: string;
-  id?: string;
+  id: string;
+}
+
+export interface FormData {
+  activity: string;
+  client: string;
+  date?: string;
+  startTime: string;
+  endTime: string;
+  id: string;
 }
 
 export interface AtBuildProps {

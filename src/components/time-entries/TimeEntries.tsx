@@ -15,7 +15,7 @@ export const TimeEntries = ({
   const [timeEntries, setTimeEntries] = useState<EntryProps[]>(initialTimeEntries);
 
   const removeEntry = (entry: EntryProps) => {
-    const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id === entry.id);
+    const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);
 
     setTimeEntries(updatedEntries);
     deleteTimeEntries(entry);

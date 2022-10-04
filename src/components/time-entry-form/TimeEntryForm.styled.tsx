@@ -49,6 +49,7 @@ export const LabelTotal = styled.label`
 export const ErrorMessage = styled.span`
   display: none;
   font-size: 11px;
+  color: red;
 
   input:invalid {
     display: block;

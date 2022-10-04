@@ -37,6 +37,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
       startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
       endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
       activity: newTimeEntry.activity,
+      id: "",
     };
 
     const postedTimeEntry = await postTimeEntries(formattedTimeEntry);
@@ -51,6 +52,8 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
       <Styled.Label>
         Client
         <Styled.Input
+          minLength={3}
+          maxLength={20}
           name="client"
           type="text"
           value={newTimeEntry.client ?? ""}
