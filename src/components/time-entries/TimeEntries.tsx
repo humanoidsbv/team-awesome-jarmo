@@ -1,17 +1,14 @@
-import { useState } from "react";
+import { useContext } from "react";
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
 import { Modal } from "../modal/Modal";
 import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
 import { deleteTimeEntries } from "../../services/time-entries/delete-time-entries";
+import { EntriesContext } from "../context/ContextProvider";
 
-export const TimeEntries = ({
-  initialTimeEntries,
-  isModalActive,
-  handleModal,
-}: Types.AtBuildProps) => {
-  const [timeEntries, setTimeEntries] = useState<Types.EntryApiProps[]>(initialTimeEntries);
+export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) => {
+  const { timeEntries, setTimeEntries } = useContext(EntriesContext);
 
   const removeEntry = (entry: Types.EntryApiProps) => {
     const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);

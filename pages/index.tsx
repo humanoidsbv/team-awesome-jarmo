@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
-
+import { EntriesProvider } from "../src/components/context/ContextProvider";
 import GlobalStyle from "../styles/global";
 import { getTimeEntries } from "../src/services/time-entries";
 import { Header } from "../src/components/header/Header";
@@ -28,19 +28,21 @@ const Homepage = ({ initialTimeEntries }: Types.AtBuildProps) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Header />
-      <SubHeader
-        title="Timesheets"
-        amount={initialTimeEntries.length}
-        subtitle="entries"
-        handleModal={handleModal}
-      />
-      <TimeEntries
-        initialTimeEntries={initialTimeEntries}
-        isModalActive={isModalActive}
-        handleModal={handleModal}
-      />
+      <EntriesProvider initialTimeEntries={initialTimeEntries}>
+        <GlobalStyle />
+        <Header />
+        <SubHeader
+          title="Timesheets"
+          amount={initialTimeEntries.length}
+          subtitle="entries"
+          handleModal={handleModal}
+        />
+        <TimeEntries
+          initialTimeEntries={initialTimeEntries}
+          isModalActive={isModalActive}
+          handleModal={handleModal}
+        />
+      </EntriesProvider>
     </ThemeProvider>
   );
 };
