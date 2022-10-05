@@ -25,8 +25,8 @@ export const Button = styled.button<ButtonProps>`
 
   :disabled {
     background: ${({ theme }) => theme.buttonSecondaryColor};
-    color: ${({ theme }) => theme.fontPrimaryColor};
     border: 1px solid #e6eaee;
+    color: ${({ theme }) => theme.fontPrimaryColor};
     cursor: not-allowed;
 
     :hover {

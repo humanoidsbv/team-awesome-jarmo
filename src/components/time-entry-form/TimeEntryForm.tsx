@@ -20,12 +20,12 @@ const initialFormValues = {
 
 export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
-  const [isFormValid, setIsFormValid] = useState<boolean | undefined>(false);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleBlur = () => {
-    setIsFormValid(formRef.current?.checkValidity());
+    setIsFormValid(formRef.current?.checkValidity() || false);
   };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
@@ -106,7 +106,7 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
           Total <Styled.Hours>08:00</Styled.Hours>
         </Styled.LabelTotal>
       </Styled.FormContainer>
-      {!isFormValid && <Styled.Span>* Entry fields are required!</Styled.Span>}
+      {!isFormValid && <Styled.Span>* You must fill in all of the fields!</Styled.Span>}
 
       <Styled.ButtonContainer>
         <Button label="cancel" variant="secondary" onClick={handleModal} />
