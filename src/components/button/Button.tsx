@@ -6,10 +6,11 @@ interface ButtonProps {
   hasIcon?: boolean;
   onClick?: () => void;
   variant?: "primary" | "secondary";
+  disabled?: boolean;
 }
 
-export const Button = ({ hasIcon, onClick, label, variant }: ButtonProps) => (
-  <Styled.Button variant={variant} onClick={onClick}>
+export const Button = ({ hasIcon, onClick, label, variant, disabled }: ButtonProps) => (
+  <Styled.Button variant={variant} onClick={onClick} disabled={disabled}>
     {hasIcon ? <PlusIcon /> : null}
     {label}
   </Styled.Button>

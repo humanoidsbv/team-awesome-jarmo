@@ -23,6 +23,17 @@ export const Button = styled.button<ButtonProps>`
     background: #1e990a;
   }
 
+  :disabled {
+    background: ${({ theme }) => theme.buttonSecondaryColor};
+    border: 1px solid #e6eaee;
+    color: ${({ theme }) => theme.fontPrimaryColor};
+    cursor: not-allowed;
+
+    :hover {
+      background: ${({ theme }) => theme.borderPrimaryColor};
+    }
+  }
+
   ${({ variant }) =>
     variant === "secondary" &&
     css`
