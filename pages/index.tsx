@@ -19,7 +19,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Homepage = ({ initialTimeEntries }: Types.AtBuildProps) => {
+const Homepage = ({ initialTimeEntries, initialFormValues }: Types.AtBuildProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
 
   const handleModal = () => {
@@ -28,7 +28,10 @@ const Homepage = ({ initialTimeEntries }: Types.AtBuildProps) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <EntriesProvider initialTimeEntries={initialTimeEntries}>
+      <EntriesProvider
+        initialTimeEntries={initialTimeEntries}
+        initialFormValues={initialFormValues}
+      >
         <GlobalStyle />
         <Header />
         <SubHeader
@@ -41,6 +44,7 @@ const Homepage = ({ initialTimeEntries }: Types.AtBuildProps) => {
           initialTimeEntries={initialTimeEntries}
           isModalActive={isModalActive}
           handleModal={handleModal}
+          initialFormValues={initialFormValues}
         />
       </EntriesProvider>
     </ThemeProvider>

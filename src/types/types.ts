@@ -30,6 +30,7 @@ export interface AtBuildProps {
   isModalActive: boolean;
   setIsModalActive?: boolean;
   handleModal: () => void;
+  initialFormValues: EntryFormProps[];
 }
 
 export interface ModalProps {
