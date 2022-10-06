@@ -28,10 +28,7 @@ const Homepage = ({ initialTimeEntries, initialFormValues }: Types.AtBuildProps)
 
   return (
     <ThemeProvider theme={theme}>
-      <EntriesProvider
-        initialTimeEntries={initialTimeEntries}
-        initialFormValues={initialFormValues}
-      >
+      <EntriesProvider initialTimeEntries={initialTimeEntries}>
         <GlobalStyle />
         <Header />
         <SubHeader

@@ -1,3 +1,11 @@
 {
-  "timeEntries": []
+  "timeEntries": [
+    {
+      "client": "Jarmo",
+      "startTime": "2022-10-30T11:11:00.000Z",
+      "endTime": "2022-10-30T22:22:00.000Z",
+      "activity": "",
+      "id": 1
+    }
+  ]
 }
