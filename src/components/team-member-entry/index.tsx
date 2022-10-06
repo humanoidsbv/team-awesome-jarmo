@@ -1,0 +1,1 @@
+export { TeamMemberEntry } from "./TeamMemberEntry";
