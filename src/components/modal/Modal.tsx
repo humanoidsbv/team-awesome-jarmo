@@ -5,19 +5,20 @@ import CloseIcon from "../../../public/icons/closeicon.svg";
 import * as Styled from "./Modal.styled";
 
 interface ModalProps {
+  children: React.ReactElement;
   isActive: boolean;
   onClose: () => void;
-  children: React.ReactElement;
+  title: string;
 }
 
-export const Modal = ({ isActive, onClose, children }: ModalProps) =>
+export const Modal = ({ isActive, onClose, children, title }: ModalProps) =>
   isActive
     ? createPortal(
         // eslint-disable-next-line react/jsx-indent
         <Styled.ModalBackDrop onClick={onClose}>
           <Styled.Modal onClick={(e) => e.stopPropagation()}>
             <Styled.ModalWrapper>
-              <Styled.Title>New Time Entry</Styled.Title>
+              <Styled.Title>{title}</Styled.Title>
               <Styled.Button type="button" onClick={onClose}>
                 <CloseIcon />
               </Styled.Button>

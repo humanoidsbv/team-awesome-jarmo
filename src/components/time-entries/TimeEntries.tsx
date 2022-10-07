@@ -52,7 +52,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
               </div>
             );
           })}
-        <Modal isActive={isModalActive} onClose={() => handleModal()}>
+        <Modal isActive={isModalActive} title="New Time Entry" onClose={() => handleModal()}>
           <TimeEntryForm
             timeEntries={timeEntries}
             setTimeEntries={setTimeEntries}

@@ -1,6 +1,18 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Avatar = styled.img`
+  border-radius: 100%;
+  height: 50px;
+  margin: 2px;
+  width: 50px;
+`;
+
+export const Profile = styled.div`
+  align-items: center;
+  display: flex;
+  gap: 20px;
+`;
+export const TeamMember = styled.div`
   align-items: center;
   background-color: #ffffff;
   border: 1px solid #e6eaee;
@@ -18,9 +30,9 @@ export const Data = styled.div`
   gap: 20px;
 `;
 
-export const DateContainer = styled.div`
+export const JobDescription = styled.div`
   align-items: center;
-  gap: 20px;
+  gap: 30px;
   display: flex;
   flex-direction: row; ;
 `;
@@ -37,14 +49,21 @@ export const Title = styled.h2`
   font-size: 18px;
 `;
 
-export const Time = styled.h2`
+export const Role = styled.h3`
+  color: #7f8fa4;
+  font-family: ${({ theme }) => theme.fontSecondary};
+  font-size: 14px;
+  text-align: left;
+`;
+
+export const Date = styled.h2`
   color: #4b5464;
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 18px;
   text-align: right;
 `;
 
-export const Hours = styled.h3`
+export const Label = styled.h3`
   color: #7f8fa4;
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 14px;
@@ -56,4 +75,11 @@ export const DeleteButton = styled.div`
   :hover {
     transform: scale(1.1);
   }
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
 `;
