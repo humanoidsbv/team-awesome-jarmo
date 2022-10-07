@@ -3,18 +3,19 @@ import * as Styled from "./TeamMemberEntry.styled";
 
 interface TeamMemberEntryProps {
   client: string;
-  date: string;
-  jobrole: string;
-  name: string;
+  firstname: string;
+  lastname: string;
 }
-export const TeamMemberEntry = ({ client, jobrole, name, date }: TeamMemberEntryProps) => {
+export const TeamMemberEntry = ({ firstname, lastname, client }: TeamMemberEntryProps) => {
   return (
     <Styled.TeamMember>
       <Styled.Profile>
         <Styled.Avatar alt="avatar" src="/images/avatar.png" />
         <Styled.Wrapper>
-          <Styled.Title>{name}</Styled.Title>
-          <Styled.Role>{jobrole}</Styled.Role>
+          <Styled.Title>
+            {firstname} {lastname}
+          </Styled.Title>
+          <Styled.Role>Front-end Developer</Styled.Role>
         </Styled.Wrapper>
       </Styled.Profile>
       <Styled.JobDescription>
@@ -23,7 +24,7 @@ export const TeamMemberEntry = ({ client, jobrole, name, date }: TeamMemberEntry
           <Styled.Label>client</Styled.Label>
         </Styled.Wrapper>
         <Styled.Wrapper>
-          <Styled.Title>{date}</Styled.Title>
+          <Styled.Title>Februari 2022</Styled.Title>
           <Styled.Label>Starting Time</Styled.Label>
         </Styled.Wrapper>
       </Styled.JobDescription>

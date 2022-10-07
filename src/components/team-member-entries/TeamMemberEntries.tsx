@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Modal } from "../modal/Modal";
 import { TeamMemberEntry } from "../team-member-entry/TeamMemberEntry";
@@ -8,16 +8,19 @@ import * as Types from "../../types/types";
 import * as Styled from "./TeamMemberEntries.styled";
 
 export const TeamMemberEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) => {
+  const [teamMembers, setTeamMembers] = useState<Types.TeamApiProps[]>();
+
   return (
     <Styled.Main>
-      <TeamMemberEntry
-        client="Nike"
-        date="September 2022"
-        jobrole="Front-end Developer"
-        name="Jarmo van der Heul"
-      />
+      <div>
+        <TeamMemberEntry firstname="test" lastname="test" client="test" />
+      </div>
       <Modal isActive={isModalActive} title="New Humanoid" onClose={() => handleModal()}>
-        <TeamMemberForm />
+        <TeamMemberForm
+          teamMembers={teamMembers}
+          setTeamMembers={setTeamMembers}
+          handleModal={handleModal}
+        />
       </Modal>
     </Styled.Main>
   );

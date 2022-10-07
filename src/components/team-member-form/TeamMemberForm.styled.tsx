@@ -43,6 +43,13 @@ export const Avatar = styled.img`
   width: 80px;
 `;
 
+export const Span = styled.span`
+  color: red;
+  display: block;
+  font-family: ${({ theme }) => theme.fontSecondary};
+  font-size: 11px;
+`;
+
 export const Title = styled.h2`
   color: #4b5464;
   font-family: ${({ theme }) => theme.fontSecondary};
