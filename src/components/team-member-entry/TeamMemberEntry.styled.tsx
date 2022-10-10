@@ -11,18 +11,22 @@ export const Profile = styled.div`
   align-items: center;
   display: flex;
   gap: 20px;
+  padding: 10px;
 `;
 export const TeamMember = styled.div`
   align-items: center;
   background-color: #ffffff;
-  border: 1px solid #e6eaee;
   border-left: 4px solid #4f88ef;
   border-radius: 4px;
+  border: 1px solid #e6eaee;
   display: flex;
   justify-content: space-between;
-  height: 80px;
-  margin: 0 10px;
-  padding: 0 10px;
+  margin: 10px 10px;
+
+  @media (${({ theme }) => theme.tablet}) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 `;
 
 export const Data = styled.div`
@@ -32,15 +36,15 @@ export const Data = styled.div`
 
 export const JobDescription = styled.div`
   align-items: center;
+  display: flex;
+  flex-direction: row;
   gap: 30px;
-  display: flex;
-  flex-direction: row; ;
-`;
-
-export const DayContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 10px;
+  padding: 20px;
+  @media (${({ theme }) => theme.tablet}) {
+    border-top: 1px solid #e6eaee;
+    padding: 10px;
+    width: 100%;
+  }
 `;
 
 export const Title = styled.h2`

@@ -1,7 +1,7 @@
-import { EntryApiProps } from "../../types/types";
+import { TeamApiProps } from "../../types/types";
 
-export async function postTeamMembers(newTeamMember: EntryApiProps) {
-  const data = await fetch("http://localhost:3004/timeEntries", {
+export async function postTeamMembers(newTeamMember: TeamApiProps) {
+  const data = await fetch("http://localhost:3004/teamMembers", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

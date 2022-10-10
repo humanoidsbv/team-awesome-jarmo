@@ -1,6 +1,6 @@
 import * as Types from "../../types/types";
 
-export async function getTeamMembers(): Promise<Types.EntryFormProps[] | Error> {
+export async function getTeamMembers(): Promise<Types.TeamFormProps[] | Error> {
   return fetch("http://localhost:3004/teamMembers")
     .then(async (response) => {
       if (response.status !== 200) {

@@ -12,7 +12,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const TeamMembers = ({ initialTeamMembers }: Types.AtBuildTeamProps) => {
+const TeamMembers = ({ initialTeamMembers, initialFormValues }: Types.AtBuildTeamProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
 
   const handleModal = () => {
@@ -31,6 +31,7 @@ const TeamMembers = ({ initialTeamMembers }: Types.AtBuildTeamProps) => {
         initialTeamMembers={initialTeamMembers}
         isModalActive={isModalActive}
         handleModal={handleModal}
+        initialFormValues={initialFormValues}
       />
     </>
   );

@@ -1,4 +1,12 @@
 {
   "timeEntries": [],
-  "teamMembers": []
+  "teamMembers": [
+    {
+      "firstname": "Jarmo",
+      "lastname": "van der Heul",
+      "email": "jarmovdh@gmail.com",
+      "client": "Humanoids",
+      "id": 1
+    }
+  ]
 }

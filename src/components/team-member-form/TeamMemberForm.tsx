@@ -30,8 +30,16 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
     });
   };
 
-  const handleSubmit = async () => {
-    const postedTeamMember = await postTeamMembers();
+  const handleSubmit = async (event: React.ChangeEvent<HTMLElement>) => {
+    event.preventDefault();
+    const formattedTeamMember: TeamApiProps = {
+      firstname: newTeamMember.firstname,
+      lastname: newTeamMember.lastname,
+      email: newTeamMember.email,
+      client: newTeamMember.client,
+    };
+
+    const postedTeamMember = await postTeamMembers(formattedTeamMember);
 
     setTeamMembers([...teamMembers, postedTeamMember]);
     setNewTeamMember(initialFormValues);

@@ -61,7 +61,7 @@ export interface AtBuildTeamProps {
   initialTeamMembers: TeamFormProps[];
   isModalActive: boolean;
   setIsModalActive?: boolean;
-  handleModal?: () => void;
+  handleModal: () => void;
   initialFormValues: TeamFormProps[];
 }
 
