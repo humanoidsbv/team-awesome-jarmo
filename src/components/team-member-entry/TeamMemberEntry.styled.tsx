@@ -16,12 +16,12 @@ export const Profile = styled.div`
 export const TeamMember = styled.div`
   align-items: center;
   background-color: #ffffff;
-  border-left: 4px solid #4f88ef;
   border-radius: 4px;
   border: 1px solid #e6eaee;
+  border-left: 4px solid #4f88ef;
   display: flex;
   justify-content: space-between;
-  margin: 10px 10px;
+  margin: 0px 10px 10px 10px;
 
   @media (${({ theme }) => theme.tablet}) {
     align-items: flex-start;
@@ -42,7 +42,7 @@ export const JobDescription = styled.div`
   padding: 20px;
   @media (${({ theme }) => theme.tablet}) {
     border-top: 1px solid #e6eaee;
-    padding: 10px;
+    padding: 20px;
     width: 100%;
   }
 `;
@@ -60,24 +60,13 @@ export const Role = styled.h3`
   text-align: left;
 `;
 
-export const Date = styled.h2`
-  color: #4b5464;
-  font-family: ${({ theme }) => theme.fontSecondary};
-  font-size: 18px;
-  text-align: right;
-`;
-
 export const Label = styled.h3`
   color: #7f8fa4;
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: 14px;
   text-align: right;
-`;
-
-export const DeleteButton = styled.div`
-  cursor: pointer;
-  :hover {
-    transform: scale(1.1);
+  @media (${({ theme }) => theme.tablet}) {
+    text-align: left;
   }
 `;
 
