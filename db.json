@@ -1,13 +1,5 @@
 {
-  "timeEntries": [
-    {
-      "client": "adidas",
-      "startTime": "2022-10-30T22:00:00.000Z",
-      "endTime": "2022-10-30T22:55:00.000Z",
-      "activity": "",
-      "id": 1
-    }
-  ],
+  "timeEntries": [],
   "teamMembers": [
     {
       "firstname": "Jarmo",
@@ -43,6 +35,13 @@
       "email": "",
       "client": "Humanoids",
       "id": 6
+    },
+    {
+      "firstname": "Nieuwe",
+      "lastname": "Test",
+      "email": "jarmovdh@gmail.com",
+      "client": "Humanoids",
+      "id": 7
     }
   ]
 }

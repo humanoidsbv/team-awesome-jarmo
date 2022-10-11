@@ -1,7 +1,6 @@
 import React, { useState, Dispatch } from "react";
 
 import { Button } from "../button/Button";
-
 import { TeamApiProps, TeamFormProps } from "../../types/types";
 import * as Styled from "./TeamMemberForm.styled";
 import { postTeamMembers } from "../../services/team-members";
@@ -13,15 +12,14 @@ interface FormInputProps {
 }
 
 const initialFormValues = {
+  client: "",
+  email: "",
   firstname: "",
   lastname: "",
-  email: "",
-  client: "",
 };
 
 export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: FormInputProps) => {
   const [newTeamMember, setNewTeamMember] = useState<TeamFormProps>(initialFormValues);
-  // const [isFormValid, setIsFormValid] = useState(false);
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTeamMember({

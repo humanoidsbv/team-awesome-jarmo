@@ -11,11 +11,17 @@ export const Main = styled.main`
 `;
 
 export const Label = styled.label`
+  color: ${({ theme }) => theme.fontPrimaryColor};
   font-family: ${({ theme }) => theme.fontSecondary};
   padding: 0px 5px;
 `;
 
-export const Select = styled.select``;
+export const Select = styled.select`
+  border: 1px solid #e6eaee;
+  border-radius: 4px;
+  color: ${({ theme }) => theme.fontPrimaryColor};
+  padding: 5px;
+`;
 
 export const Container = styled.div`
   align-items: center;
