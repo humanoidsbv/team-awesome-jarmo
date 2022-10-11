@@ -1,5 +1,20 @@
 {
-  "timeEntries": [],
+  "timeEntries": [
+    {
+      "client": "Uber",
+      "startTime": "2022-11-06T22:00:00.000Z",
+      "endTime": "2022-11-06T22:44:00.000Z",
+      "activity": "",
+      "id": 2
+    },
+    {
+      "client": "Ajax",
+      "startTime": "2023-01-29T00:11:00.000Z",
+      "endTime": "2023-01-29T22:00:00.000Z",
+      "activity": "",
+      "id": 3
+    }
+  ],
   "teamMembers": [
     {
       "firstname": "Jarmo",
