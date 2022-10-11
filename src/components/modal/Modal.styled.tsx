@@ -29,9 +29,7 @@ export const Modal = styled.div`
   background: #ffffff;
   border-radius: 4px;
   display: flex;
-  display: flex;
   flex-direction: column;
-  height: 436px;
   padding: 20px;
   width: 560px;
 
