@@ -27,7 +27,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
         return sortOrder === "ascending" ? 1 : -1;
       }
       if (a.startTime > b.startTime) {
-        return sortOrder === "descending" ? 1 : -1;
+        return sortOrder === "ascending" ? -1 : 1;
       }
       return 0;
     });
