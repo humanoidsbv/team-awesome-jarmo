@@ -12,10 +12,15 @@ export const TeamMemberEntries = ({ isModalActive, handleModal }: Types.AtBuildT
   const { teamMembers, setTeamMembers } = useContext(TeamContext);
   const [selectedClient, setSelectedClient] = useState("");
 
-  const filterClients = (event) => {
+  const filterClients = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedClient(event?.target.value);
-    console.log("changed");
   };
+
+  const onlyClients = teamMembers.map((entry) => entry.client);
+
+  const uniqueClients = onlyClients.filter((client, index) => {
+    return onlyClients.indexOf(client) === index;
+  });
 
   return (
     <Styled.Main>
@@ -23,14 +28,14 @@ export const TeamMemberEntries = ({ isModalActive, handleModal }: Types.AtBuildT
         <Styled.Label>Filter by client: </Styled.Label>
         <Styled.Select value={selectedClient} onChange={filterClients}>
           <option value="">--Choose a client--</option>
-          {teamMembers.map((teamMember) => (
-            <option value={teamMember.client} label={teamMember.client} key={teamMember.id} />
+          {uniqueClients.map((entry) => (
+            <option value={entry} label={entry} key={entry} />
           ))}
         </Styled.Select>
       </Styled.Container>
 
       {teamMembers
-        .filter((member) => member.client === selectedClient)
+        .filter((member) => selectedClient === "" || member.client === selectedClient)
         .map((teamMember) => (
           <TeamMemberEntry
             key={teamMember.id}

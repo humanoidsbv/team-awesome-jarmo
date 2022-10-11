@@ -30,7 +30,7 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
     });
   };
 
-  const handleSubmit = async (event: React.ChangeEvent<HTMLElement>) => {
+  const handleSubmit = async (event: React.ChangeEvent<HTMLButtonElement>) => {
     event.preventDefault();
     const formattedTeamMember: TeamApiProps = {
       firstname: newTeamMember.firstname,
