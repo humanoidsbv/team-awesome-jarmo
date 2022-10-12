@@ -1,7 +1,7 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
-// import CloseIcon from "../../../public/icons/closeicon.svg";
+import CloseIcon from "../../../public/icons/close.svg";
 import * as Styled from "./Modal.styled";
 
 interface ModalProps {
@@ -20,7 +20,7 @@ export const Modal = ({ isActive, onClose, children, title }: ModalProps) =>
             <Styled.ModalWrapper>
               <Styled.Title>{title}</Styled.Title>
               <Styled.Button type="button" onClick={onClose}>
-                {/* <CloseIcon /> */}bla
+                <CloseIcon />
               </Styled.Button>
             </Styled.ModalWrapper>
             <Styled.ModalContainer>{children}</Styled.ModalContainer>
