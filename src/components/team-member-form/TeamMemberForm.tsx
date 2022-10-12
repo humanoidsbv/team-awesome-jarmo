@@ -93,7 +93,6 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
           />
         </Styled.Label>
       </Styled.InputContainer>
-      {/* {!isFormValid && <Styled.Span>* You must fill in all of the fields!</Styled.Span>} */}
       <Styled.ButtonContainer>
         <Button label="cancel" variant="secondary" onClick={handleModal} />
         <Button label="Add Humanoid" onClick={handleSubmit} />

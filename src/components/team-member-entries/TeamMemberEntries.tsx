@@ -48,16 +48,20 @@ export const TeamMemberEntries = ({ isModalActive, handleModal }: Types.AtBuildT
       <Styled.Container>
         <Styled.Label>Filter by client: </Styled.Label>
         <Styled.Select value={selectedClient} onChange={filterClients}>
-          <option value="">--Choose a client--</option>
+          <option disabled value="">
+            --Choose a client--
+          </option>
           {uniqueClients.map((entry) => (
             <option value={entry} label={entry} key={entry} />
           ))}
         </Styled.Select>
         <Styled.Label>Sort by name:</Styled.Label>
         <Styled.Select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-          <option value="">--Select option--</option>
-          {sortOptions.map((label, i) => (
-            <option key={label + i} label={label} value={label}>
+          <option disabled value="">
+            --Select option--
+          </option>
+          {sortOptions.map((label) => (
+            <option key={label} label={label} value={label}>
               {label}
             </option>
           ))}

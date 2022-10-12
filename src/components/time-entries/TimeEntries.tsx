@@ -45,7 +45,9 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
         <Styled.Container>
           <Styled.Label>Sort by Date:</Styled.Label>
           <Styled.Select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}>
-            <option value="">--Select option--</option>
+            <option disabled value="">
+              --Select option--
+            </option>
             {sortOptions.map((label, i) => (
               <option key={label + i} label={label} value={label}>
                 {label}
