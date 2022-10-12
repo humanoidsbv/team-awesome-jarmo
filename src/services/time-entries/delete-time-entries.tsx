@@ -1,12 +1,15 @@
 import { EntryApiProps } from "../../types/types";
 
 export async function deleteTimeEntries(entry: EntryApiProps) {
-  const data = await fetch(`http://localhost:3004/timeEntries/${entry.id}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
+  const data = await fetch(
+    `https://my-json-server.typicode.com/humanoidsbv/team-awesome-jarmo/blob/main/db.json/timeEntries/${entry.id}`,
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     },
-  })
+  )
     .then(async (response) => {
       if (!response.ok) {
         throw new Error(await response.json());
