@@ -7,8 +7,8 @@ interface EntriesProviderProps {
 }
 
 interface EntriesContextProps {
-  timeEntries: Types.EntryApiProps[];
-  setTimeEntries: Dispatch<SetStateAction<Types.EntryApiProps[]>>;
+  timeEntries: Types.EntryFormProps[];
+  setTimeEntries: Dispatch<SetStateAction<Types.EntryFormProps[]>>;
 }
 
 export const EntriesContext = createContext<EntriesContextProps>({} as EntriesContextProps);

@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export const Button = styled.button``;
+export const Button = styled.button`
+  > svg {
+    > path {
+      fill: black;
+    }
+  }
+`;
 
 export const ModalBackDrop = styled.div`
   align-items: center;

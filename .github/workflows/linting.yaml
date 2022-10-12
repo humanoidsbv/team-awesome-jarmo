@@ -1,0 +1,24 @@
+name: Lint
+
+on: push
+
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "17"
+          cache: npm
+
+      - name: Install
+        run: npm ci --production-only
+
+      - name: 🧹 Run lint
+        run: npm run lint
