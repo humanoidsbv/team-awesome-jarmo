@@ -48,9 +48,7 @@ export const TeamMemberEntries = ({ isModalActive, handleModal }: Types.AtBuildT
       <Styled.Container>
         <Styled.Label>Filter by client: </Styled.Label>
         <Styled.Select value={selectedClient} onChange={filterClients}>
-          <option disabled value="">
-            --Choose a client--
-          </option>
+          <option value="">--Choose a client--</option>
           {uniqueClients.map((entry) => (
             <option value={entry} label={entry} key={entry} />
           ))}

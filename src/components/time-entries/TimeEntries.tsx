@@ -19,9 +19,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
   };
 
   const timeClients = timeEntries.map((entry) => entry.client);
-  const uniqueClients = timeClients.filter((client, index) => {
-    return timeClients.indexOf(client) === index;
-  });
+  const uniqueClients = Array.from(new Set(timeClients));
 
   const removeEntry = (entry: Types.EntryApiProps) => {
     const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);
@@ -56,9 +54,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
         <Styled.Container>
           <Styled.Label>Filter by client: </Styled.Label>
           <Styled.Select value={selectedClient} onChange={filterClients}>
-            <option disabled value="">
-              --Choose a client--
-            </option>
+            <option value="">--Choose a client--</option>
             {uniqueClients.map((entry) => (
               <option value={entry} label={entry} key={entry} />
             ))}
