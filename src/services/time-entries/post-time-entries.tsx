@@ -2,7 +2,7 @@ import { EntryApiProps } from "../../types/types";
 
 export async function postTimeEntries(newTimeEntry: EntryApiProps) {
   const data = await fetch(
-    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-jarmo/blob/main/db.json/timeEntries",
+    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-jarmo/timeEntries",
     {
       method: "POST",
       headers: {
