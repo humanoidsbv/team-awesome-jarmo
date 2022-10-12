@@ -46,7 +46,7 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
     <Styled.Form>
       <Styled.AvatarWrapper>
         <Styled.Avatar alt="avatar" src="/images/avatar.png" />
-        <Styled.Title>Edit Avatar</Styled.Title>
+        <Styled.Title>Edit Avatar:</Styled.Title>
       </Styled.AvatarWrapper>
       <Styled.InputContainer>
         <Styled.Label>
