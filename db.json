@@ -20,6 +20,13 @@
       "endTime": "2022-10-30T11:22:00.000Z",
       "activity": "",
       "id": 3
+    },
+    {
+      "client": "Rabobank",
+      "startTime": "2022-11-22T11:22:00.000Z",
+      "endTime": "2022-11-22T12:43:00.000Z",
+      "activity": "",
+      "id": 4
     }
   ],
   "teamMembers": [
@@ -64,6 +71,13 @@
       "email": "jarmovdh@gmail.com",
       "client": "Humanoids",
       "id": 7
+    },
+    {
+      "firstname": "Lionel ",
+      "lastname": "Messi",
+      "email": "messi@barcelona.com",
+      "client": "Barcelona",
+      "id": 8
     }
   ]
 }

@@ -1,3 +1,11 @@
+export interface ButtonProps {
+  label: string;
+  hasIcon?: boolean;
+  onClick?: () => void;
+  variant?: "primary" | "secondary";
+  disabled?: boolean;
+}
+
 // Van de API
 export interface EntryApiProps {
   activity?: string;
@@ -39,6 +47,7 @@ export interface EntryFormProps {
   date: string;
   startTime: string;
   endTime: string;
+  id?: string;
 }
 
 export interface TeamFormProps {
