@@ -1,2 +1,9 @@
-- name: 🧹 Run lint
-  run: npm run lint
+on: push
+
+jobs:
+  build:
+    name: Build application
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🧹 Run lint
+        run: npm run lint
