@@ -41,7 +41,7 @@ export const TeamMemberEntries = ({ isModalActive, handleModal }: Types.AtBuildT
 
   useEffect(() => {
     handleSort();
-  }, [sortOrder]);
+  }, [sortOrder, teamMembers]);
 
   return (
     <Styled.Main>

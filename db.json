@@ -1,32 +1,11 @@
 {
   "timeEntries": [
     {
-      "client": "Uber",
-      "startTime": "2022-10-30T22:00:00.000Z",
-      "endTime": "2022-10-30T22:55:00.000Z",
+      "client": "Jarmo",
+      "startTime": "2200-01-22T22:00:00.000Z",
+      "endTime": "2200-01-22T22:55:00.000Z",
       "activity": "",
       "id": 1
-    },
-    {
-      "client": "Rabobank",
-      "startTime": "2023-03-12T22:00:00.000Z",
-      "endTime": "2023-03-12T22:44:00.000Z",
-      "activity": "",
-      "id": 2
-    },
-    {
-      "client": "Uber",
-      "startTime": "2022-10-30T22:00:00.000Z",
-      "endTime": "2022-10-30T11:22:00.000Z",
-      "activity": "",
-      "id": 3
-    },
-    {
-      "client": "Rabobank",
-      "startTime": "2022-11-22T11:22:00.000Z",
-      "endTime": "2022-11-22T12:43:00.000Z",
-      "activity": "",
-      "id": 4
     }
   ],
   "teamMembers": [
@@ -78,6 +57,13 @@
       "email": "messi@barcelona.com",
       "client": "Barcelona",
       "id": 8
+    },
+    {
+      "firstname": "Bryan",
+      "lastname": "Brobby",
+      "email": "",
+      "client": "Ajax",
+      "id": 9
     }
   ]
 }

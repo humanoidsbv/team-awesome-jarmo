@@ -46,7 +46,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
 
   useEffect(() => {
     handleSort();
-  }, [sortOrder]);
+  }, [sortOrder, timeEntries]);
 
   return (
     <>
