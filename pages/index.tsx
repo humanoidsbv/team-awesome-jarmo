@@ -1,16 +1,21 @@
 import { useState } from "react";
+
+import { GET_TIME_ENTRIES } from "../src/graphql/time-entries/queries";
+
 import { EntriesProvider } from "../src/components/context/ContextProvider";
-import { getTimeEntries } from "../src/services/time-entries";
 import { SubHeader } from "../src/components/sub-header/SubHeader";
 import { TimeEntries } from "../src/components/time-entries/TimeEntries";
 import * as Types from "../src/types/types";
+import { client } from "../src/services/apollo-client/apollo-client";
 
 export const getServerSideProps = async () => {
-  const initialTimeEntries = await getTimeEntries();
+  const { data } = await client.query({
+    query: GET_TIME_ENTRIES,
+  });
 
   return {
     props: {
-      initialTimeEntries,
+      initialTimeEntries: data.allTimeEntries,
     },
   };
 };

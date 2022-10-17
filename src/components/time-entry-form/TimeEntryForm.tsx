@@ -1,8 +1,11 @@
 import React, { useState, Dispatch, useRef } from "react";
+import { useMutation } from "@apollo/client";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
 import { EntryApiProps, EntryFormProps } from "../../types/types";
 import { postTimeEntries } from "../../services/time-entries/post-time-entries";
+import { ADD_TIME_ENTRY } from "../../graphql/time-entries/mutations";
+import { client } from "../../services/apollo-client/apollo-client";
 
 interface FormProps {
   timeEntries: EntryApiProps[];
@@ -22,6 +25,8 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
   const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
+  const [createNewTimeEntry, { data }] = useMutation(ADD_TIME_ENTRY);
+
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleBlur = () => {
@@ -36,17 +41,25 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
   };
 
   const handleSubmit = async () => {
-    const formattedTimeEntry: EntryApiProps = {
-      client: newTimeEntry.client,
-      startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
-      endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
-      activity: newTimeEntry.activity,
-    };
+    // const formattedTimeEntry: EntryApiProps = {
+    //   client: newTimeEntry.client,
+    //   startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
+    //   endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
+    //   activity: newTimeEntry.activity,
+    // };
 
-    const postedTimeEntry = await postTimeEntries(formattedTimeEntry);
+    // const postedTimeEntry = await postTimeEntries(formattedTimeEntry);
 
-    setTimeEntries([...timeEntries, postedTimeEntry]);
-    setNewTimeEntry(initialFormValues);
+    // setTimeEntries([...timeEntries, postedTimeEntry]);
+    // setNewTimeEntry(initialFormValues);
+
+    await createNewTimeEntry({
+      variables: {
+        client: newTimeEntry.client,
+        startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
+        endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
+      },
+    });
     handleModal();
   };
 
