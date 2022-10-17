@@ -57,13 +57,6 @@
       "email": "messi@barcelona.com",
       "client": "Barcelona",
       "id": 8
-    },
-    {
-      "firstname": "Bryan",
-      "lastname": "Brobby",
-      "email": "",
-      "client": "Ajax",
-      "id": 9
     }
   ]
 }
