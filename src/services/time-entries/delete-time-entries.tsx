@@ -2,7 +2,7 @@ import { EntryApiProps } from "../../types/types";
 
 export async function deleteTimeEntries(entry: EntryApiProps) {
   const data = await fetch(
-    `https://my-json-server.typicode.com/humanoidsbv/team-awesome-jarmo/timeEntries/${entry.id}`,
+    `https://my-json-server.typicode.com/humanoidsbv/team-awesome-jarmo/db${entry.id}`,
     {
       method: "DELETE",
       headers: {

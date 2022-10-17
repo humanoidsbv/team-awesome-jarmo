@@ -2,7 +2,7 @@ import { TeamApiProps } from "../../types/types";
 
 export async function postTeamMembers(newTeamMember: TeamApiProps) {
   const data = await fetch(
-    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-jarmo/teamMembers",
+    "https://my-json-server.typicode.com/humanoidsbv/team-awesome-jarmo/db",
     {
       method: "POST",
       headers: {
