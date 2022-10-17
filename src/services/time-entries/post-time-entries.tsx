@@ -1,7 +1,7 @@
 import { EntryApiProps } from "../../types/types";
 
 export async function postTimeEntries(newTimeEntry: EntryApiProps) {
-  const data = await fetch("http://localhost:3004/timeEntries", {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/timeEntries`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

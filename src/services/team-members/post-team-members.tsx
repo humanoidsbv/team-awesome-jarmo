@@ -1,7 +1,7 @@
 import { TeamApiProps } from "../../types/types";
 
 export async function postTeamMembers(newTeamMember: TeamApiProps) {
-  const data = await fetch("http://localhost:3004/teamMembers", {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/teamMembers`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

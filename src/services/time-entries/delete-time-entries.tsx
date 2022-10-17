@@ -1,7 +1,7 @@
 import { EntryApiProps } from "../../types/types";
 
 export async function deleteTimeEntries(entry: EntryApiProps) {
-  const data = await fetch(`http://localhost:3004/timeEntries/${entry.id}`, {
+  const data = await fetch(`${process.env.NEXT_PUBLIC_DB_HOST}/timeEntries/${entry.id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

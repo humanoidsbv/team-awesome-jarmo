@@ -4,10 +4,10 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "json-server": "json-server --watch db.json --port 3004",
-    "dev": "next & npm run json-server",
+    "dev": "NODE_ENV=development next & npm run json-server",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production next start",
+    "json-server": "json-server --watch db.json --port 3004",
     "lint": "eslint '*/**/*.{js,ts,tsx}'"
   },
   "repository": {
