@@ -29,6 +29,9 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
   const uniqueClients = Array.from(new Set(timeClients));
 
   const removeEntry = async (entry: Types.EntryApiProps) => {
+    const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);
+    setTimeEntries(updatedEntries);
+
     const { id } = entry;
 
     await removeTimeEntry({
@@ -38,8 +41,6 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
     });
   };
   const sortOptions = ["ascending", "descending"];
-
-  console.log("");
 
   const handleSort = () => {
     const sort = timeEntries.sort((a, b) => {
