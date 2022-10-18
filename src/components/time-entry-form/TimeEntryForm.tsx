@@ -34,10 +34,9 @@ export const TimeEntryForm = ({ handleModal }: Types.FormProps) => {
   };
 
   const handleSubmit = async () => {
-    const { client } = newTimeEntry;
+    const { client, activity } = newTimeEntry;
     const startTime = `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`;
     const endTime = `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`;
-    const { activity } = newTimeEntry;
 
     await createTimeEntry({
       variables: {

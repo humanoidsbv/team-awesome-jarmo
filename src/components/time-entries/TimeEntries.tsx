@@ -17,7 +17,13 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
   const [sortedTimeEntries, setSortedTimeEntries] = useState(timeEntries);
   const [selectedClient, setSelectedClient] = useState("");
 
-  const [removeTimeEntry] = useMutation(REMOVE_TIME_ENTRY, {
+  const [deleteTimeEntry] = useMutation(REMOVE_TIME_ENTRY, {
+    onCompleted: async ({ removeTimeEntry }) => {
+      const updatedTimeEntries = timeEntries.filter(
+        (timeEntry) => timeEntry.id !== removeTimeEntry.id,
+      );
+      setTimeEntries(updatedTimeEntries);
+    },
     refetchQueries: [{ query: GET_TIME_ENTRIES }],
   });
 
@@ -29,12 +35,9 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
   const uniqueClients = Array.from(new Set(timeClients));
 
   const removeEntry = async (entry: Types.EntryApiProps) => {
-    const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);
-    setTimeEntries(updatedEntries);
-
     const { id } = entry;
 
-    await removeTimeEntry({
+    await deleteTimeEntry({
       variables: {
         id,
       },
