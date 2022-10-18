@@ -1,15 +1,10 @@
-import React, { useState, Dispatch } from "react";
+import React, { useState } from "react";
 
+import { useMutation } from "@apollo/client";
 import { Button } from "../button/Button";
-import { TeamApiProps, TeamFormProps } from "../../types/types";
+import * as Types from "../../types/types";
 import * as Styled from "./TeamMemberForm.styled";
-import { postTeamMembers } from "../../services/team-members";
-
-interface FormInputProps {
-  teamMembers: TeamApiProps[];
-  setTeamMembers: Dispatch<TeamFormProps[]>;
-  handleModal: () => void;
-}
+import { ADD_TEAM_MEMBER } from "../../graphql/team-members/mutations";
 
 const initialFormValues = {
   client: "",
@@ -18,8 +13,10 @@ const initialFormValues = {
   lastname: "",
 };
 
-export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: FormInputProps) => {
-  const [newTeamMember, setNewTeamMember] = useState<TeamFormProps>(initialFormValues);
+export const TeamMemberForm = ({ handleModal }: Types.FormInputProps) => {
+  const [newTeamMember, setNewTeamMember] = useState<Types.TeamFormProps>(initialFormValues);
+
+  const [addTeamMember] = useMutation(ADD_TEAM_MEMBER);
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTeamMember({
@@ -29,17 +26,17 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
   };
 
   const handleSubmit = async () => {
-    const formattedTeamMember: TeamApiProps = {
-      firstname: newTeamMember.firstname,
-      lastname: newTeamMember.lastname,
-      email: newTeamMember.email,
-      client: newTeamMember.client,
-    };
+    const { firstname, lastname, email, client } = newTeamMember;
 
-    const postedTeamMember = await postTeamMembers(formattedTeamMember);
+    await addTeamMember({
+      variables: {
+        firstname,
+        lastname,
+        email,
+        client,
+      },
+    });
 
-    setTeamMembers([...teamMembers, postedTeamMember]);
-    setNewTeamMember(initialFormValues);
     handleModal();
   };
   return (

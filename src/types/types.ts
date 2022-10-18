@@ -86,3 +86,9 @@ export interface FormProps {
   setTimeEntries: Dispatch<EntryFormProps[]>;
   handleModal: () => void;
 }
+
+export interface FormInputProps {
+  teamMembers: TeamApiProps[];
+  setTeamMembers: Dispatch<TeamFormProps[]>;
+  handleModal: () => void;
+}
