@@ -4,7 +4,6 @@ import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
 import { EntryFormProps } from "../../types/types";
 import { ADD_TIME_ENTRY } from "../../graphql/time-entries/mutations";
-import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
 import * as Types from "../../types/types";
 
 const initialFormValues = {
@@ -15,7 +14,7 @@ const initialFormValues = {
   date: "",
 };
 
-export const TimeEntryForm = ({ handleModal, timeEntries, setTimeEntries }: Types.FormProps) => {
+export const TimeEntryForm = ({ handleModal }: Types.FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
