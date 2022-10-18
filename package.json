@@ -4,8 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "json-server": "json-server --watch db.json --port 3004",
-    "dev": "next & npm run json-server",
+    "dev": "next & json-graphql-server db.json --p 3333",
     "build": "next build",
     "start": "next start",
     "lint": "eslint '*/**/*.{js,ts,tsx}'"
@@ -22,6 +21,7 @@
   "homepage": "https://github.com/humanoidsbv/team-awesome-jarmo#readme",
   "dependencies": {
     "@apollo/client": "^3.7.0",
+    "json-graphql-server": "2.3.1",
     "graphql": "^16.6.0",
     "next": "^12.3.0",
     "react": "^18.2.0",

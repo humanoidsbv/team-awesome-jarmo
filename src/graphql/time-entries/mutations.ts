@@ -7,7 +7,7 @@ export const ADD_TIME_ENTRY = gql`
     $startTime: String!
     $endTime: String!
   ) {
-    createNewTimeEntry(
+    createTimeEntry(
       client: $client
       activity: $activity
       startTime: $startTime
@@ -18,6 +18,14 @@ export const ADD_TIME_ENTRY = gql`
       id
       startTime
       endTime
+    }
+  }
+`;
+
+export const REMOVE_TIME_ENTRY = gql`
+  mutation RemoveTimeEntry($id: ID!) {
+    removeTimeEntry(id: $id) {
+      id
     }
   }
 `;

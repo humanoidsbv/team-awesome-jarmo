@@ -1,3 +1,5 @@
+import { Dispatch } from "react";
+
 export interface ButtonProps {
   label: string;
   hasIcon?: boolean;
@@ -77,4 +79,10 @@ export interface AtBuildTeamProps {
 export interface ModalProps {
   isActive: boolean;
   onClose: () => void;
+}
+
+export interface FormProps {
+  timeEntries: EntryApiProps[];
+  setTimeEntries: Dispatch<EntryFormProps[]>;
+  handleModal: () => void;
 }

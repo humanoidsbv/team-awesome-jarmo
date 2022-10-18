@@ -1,18 +1,25 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useMutation } from "@apollo/client";
 
 import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry/TimeEntry";
 import * as Types from "../../types/types";
 import { Modal } from "../modal/Modal";
 import { TimeEntryForm } from "../time-entry-form/TimeEntryForm";
-import { deleteTimeEntries } from "../../services/time-entries/delete-time-entries";
+
 import { EntriesContext } from "../context/ContextProvider";
+import { REMOVE_TIME_ENTRY } from "../../graphql/time-entries/mutations";
+import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
 
 export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) => {
   const { timeEntries, setTimeEntries } = useContext(EntriesContext);
   const [sortOrder, setSortOrder] = useState("ascending");
   const [sortedTimeEntries, setSortedTimeEntries] = useState(timeEntries);
   const [selectedClient, setSelectedClient] = useState("");
+
+  const [removeTimeEntry] = useMutation(REMOVE_TIME_ENTRY, {
+    refetchQueries: [{ query: GET_TIME_ENTRIES }],
+  });
 
   const filterClients = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedClient(event.target.value);
@@ -21,14 +28,18 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
   const timeClients = timeEntries.map((entry) => entry.client);
   const uniqueClients = Array.from(new Set(timeClients));
 
-  const removeEntry = (entry: Types.EntryApiProps) => {
-    const updatedEntries = timeEntries.filter((timeEntry) => timeEntry.id !== entry.id);
+  const removeEntry = async (entry: Types.EntryApiProps) => {
+    const { id } = entry;
 
-    setTimeEntries(updatedEntries);
-    deleteTimeEntries(entry);
+    await removeTimeEntry({
+      variables: {
+        id,
+      },
+    });
   };
-
   const sortOptions = ["ascending", "descending"];
+
+  console.log("");
 
   const handleSort = () => {
     const sort = timeEntries.sort((a, b) => {
@@ -46,7 +57,7 @@ export const TimeEntries = ({ isModalActive, handleModal }: Types.AtBuildProps) 
 
   useEffect(() => {
     handleSort();
-  }, [sortOrder]);
+  }, [sortOrder, timeEntries]);
 
   return (
     <>

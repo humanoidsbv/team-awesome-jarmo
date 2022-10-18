@@ -1,17 +1,11 @@
-import React, { useState, Dispatch, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { useMutation } from "@apollo/client";
 import * as Styled from "./TimeEntryForm.styled";
 import { Button } from "../button/Button";
-import { EntryApiProps, EntryFormProps } from "../../types/types";
-import { postTimeEntries } from "../../services/time-entries/post-time-entries";
+import { EntryFormProps } from "../../types/types";
 import { ADD_TIME_ENTRY } from "../../graphql/time-entries/mutations";
-import { client } from "../../services/apollo-client/apollo-client";
-
-interface FormProps {
-  timeEntries: EntryApiProps[];
-  setTimeEntries: Dispatch<EntryFormProps[]>;
-  handleModal: () => void;
-}
+import { GET_TIME_ENTRIES } from "../../graphql/time-entries/queries";
+import * as Types from "../../types/types";
 
 const initialFormValues = {
   activity: "",
@@ -21,11 +15,16 @@ const initialFormValues = {
   date: "",
 };
 
-export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: FormProps) => {
+export const TimeEntryForm = ({ handleModal, timeEntries, setTimeEntries }: Types.FormProps) => {
   const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
-  const [createNewTimeEntry, { data }] = useMutation(ADD_TIME_ENTRY);
+  const [createTimeEntry] = useMutation(ADD_TIME_ENTRY, {
+    refetchQueries: [{ query: GET_TIME_ENTRIES }],
+    onCompleted: ({ createdTimeEntry }) => {
+      setTimeEntries([...timeEntries, createdTimeEntry]);
+    },
+  });
 
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -41,23 +40,17 @@ export const TimeEntryForm = ({ timeEntries, setTimeEntries, handleModal }: Form
   };
 
   const handleSubmit = async () => {
-    // const formattedTimeEntry: EntryApiProps = {
-    //   client: newTimeEntry.client,
-    //   startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
-    //   endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
-    //   activity: newTimeEntry.activity,
-    // };
+    const { client } = newTimeEntry;
+    const startTime = `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`;
+    const endTime = `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`;
+    const { activity } = newTimeEntry;
 
-    // const postedTimeEntry = await postTimeEntries(formattedTimeEntry);
-
-    // setTimeEntries([...timeEntries, postedTimeEntry]);
-    // setNewTimeEntry(initialFormValues);
-
-    await createNewTimeEntry({
+    await createTimeEntry({
       variables: {
-        client: newTimeEntry.client,
-        startTime: `${newTimeEntry.date}T${newTimeEntry.startTime}:00.000Z`,
-        endTime: `${newTimeEntry.date}T${newTimeEntry.endTime}:00.000Z`,
+        client,
+        startTime,
+        endTime,
+        activity,
       },
     });
     handleModal();
