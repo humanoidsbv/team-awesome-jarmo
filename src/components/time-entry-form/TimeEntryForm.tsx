@@ -19,12 +19,7 @@ export const TimeEntryForm = ({ handleModal, timeEntries, setTimeEntries }: Type
   const [newTimeEntry, setNewTimeEntry] = useState<EntryFormProps>(initialFormValues);
   const [isFormValid, setIsFormValid] = useState<boolean>(false);
 
-  const [createTimeEntry] = useMutation(ADD_TIME_ENTRY, {
-    refetchQueries: [{ query: GET_TIME_ENTRIES }],
-    onCompleted: ({ createdTimeEntry }) => {
-      setTimeEntries([...timeEntries, createdTimeEntry]);
-    },
-  });
+  const [createTimeEntry] = useMutation(ADD_TIME_ENTRY);
 
   const formRef = useRef<HTMLFormElement>(null);
 

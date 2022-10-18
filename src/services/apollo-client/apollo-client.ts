@@ -4,6 +4,12 @@ export const client = new ApolloClient({
   link: createHttpLink({
     uri: "http://localhost:3333",
   }),
-  cache: new InMemoryCache(),
   ssrMode: true,
+  cache: new InMemoryCache(),
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: "no-cache",
+      errorPolicy: "ignore",
+    },
+  },
 });
