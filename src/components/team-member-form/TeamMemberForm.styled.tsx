@@ -36,6 +36,13 @@ export const InputContainer = styled.div`
   flex-wrap: wrap;
 `;
 
+export const InputWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+  width: 100%;
+`;
+
 export const Avatar = styled.img`
   border-radius: 100%;
   height: 80px;

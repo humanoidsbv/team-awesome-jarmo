@@ -38,7 +38,7 @@ export const JobDescription = styled.div`
   align-items: center;
   display: flex;
   flex-direction: row;
-  gap: 30px;
+  gap: 40px;
   padding: 20px;
   @media (${({ theme }) => theme.tablet}) {
     border-top: 1px solid #e6eaee;

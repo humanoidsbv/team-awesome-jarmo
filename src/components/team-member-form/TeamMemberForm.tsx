@@ -1,4 +1,4 @@
-import React, { useState, Dispatch } from "react";
+import React, { useState, Dispatch, useRef } from "react";
 
 import { Button } from "../button/Button";
 import { TeamApiProps, TeamFormProps } from "../../types/types";
@@ -20,6 +20,13 @@ const initialFormValues = {
 
 export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: FormInputProps) => {
   const [newTeamMember, setNewTeamMember] = useState<TeamFormProps>(initialFormValues);
+  const [isFormValid, setIsFormValid] = useState<boolean>(false);
+
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleBlur = () => {
+    setIsFormValid(formRef.current?.checkValidity() || false);
+  };
 
   const handleChange = (key: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setNewTeamMember({
@@ -43,30 +50,36 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
     handleModal();
   };
   return (
-    <Styled.Form>
+    <Styled.Form ref={formRef}>
       <Styled.AvatarWrapper>
         <Styled.Avatar alt="avatar" src="/images/avatar.png" />
         <Styled.Title>Edit Avatar</Styled.Title>
       </Styled.AvatarWrapper>
       <Styled.InputContainer>
-        <Styled.Label>
-          First name
-          <Styled.Input
-            name="firstname"
-            type="text"
-            value={newTeamMember.firstname ?? ""}
-            onChange={(event) => handleChange("firstname", event)}
-          />
-        </Styled.Label>
-        <Styled.Label>
-          Last name
-          <Styled.Input
-            name="lastname"
-            type="text"
-            value={newTeamMember.lastname ?? ""}
-            onChange={(event) => handleChange("lastname", event)}
-          />
-        </Styled.Label>
+        <Styled.InputWrapper>
+          <Styled.Label>
+            First name
+            <Styled.Input
+              name="firstname"
+              type="text"
+              value={newTeamMember.firstname ?? ""}
+              required
+              onChange={(event) => handleChange("firstname", event)}
+              onBlur={handleBlur}
+            />
+          </Styled.Label>
+          <Styled.Label>
+            Last name
+            <Styled.Input
+              name="lastname"
+              type="text"
+              value={newTeamMember.lastname ?? ""}
+              onChange={(event) => handleChange("lastname", event)}
+              required
+              onBlur={handleBlur}
+            />
+          </Styled.Label>
+        </Styled.InputWrapper>
       </Styled.InputContainer>
       <Styled.InputContainer>
         <Styled.Label>
@@ -76,6 +89,8 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
             type="text"
             value={newTeamMember.email ?? ""}
             onChange={(event) => handleChange("email", event)}
+            required
+            onBlur={handleBlur}
           />
         </Styled.Label>
         <Styled.Label>
@@ -89,12 +104,15 @@ export const TeamMemberForm = ({ teamMembers, setTeamMembers, handleModal }: For
             type="text"
             value={newTeamMember.client ?? ""}
             onChange={(event) => handleChange("client", event)}
+            required
+            onBlur={handleBlur}
           />
         </Styled.Label>
+        {!isFormValid && <Styled.Span>* You must fill in all of the fields!</Styled.Span>}
       </Styled.InputContainer>
       <Styled.ButtonContainer>
         <Button label="cancel" variant="secondary" onClick={handleModal} />
-        <Button label="Add Humanoid" onClick={handleSubmit} />
+        <Button label="Add Humanoid" disabled={!isFormValid} onClick={handleSubmit} />
       </Styled.ButtonContainer>
     </Styled.Form>
   );

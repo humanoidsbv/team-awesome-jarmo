@@ -48,7 +48,8 @@ export const MenuList = styled.ul`
 export const Link = styled.a`
   color: white;
   display: inline-block;
-  padding: 5px 20px;
+  margin: 0px 25px;
+  padding: 5px 0px;
   position: relative;
   text-decoration: none;
 

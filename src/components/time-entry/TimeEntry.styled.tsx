@@ -10,7 +10,7 @@ export const Container = styled.div`
   justify-content: space-between;
   height: 80px;
   margin: 0 10px;
-  padding: 0 10px;
+  padding: 0 15px;
 `;
 
 export const Data = styled.div`
@@ -55,5 +55,10 @@ export const DeleteButton = styled.div`
   cursor: pointer;
   :hover {
     transform: scale(1.1);
+    > svg {
+      > path {
+        fill: #e01b2f;
+      }
+    }
   }
 `;
