@@ -7,7 +7,7 @@ type ButtonProps = {
 
 export const Button = styled.button<ButtonProps>`
   align-items: center;
-  background-color: ${({ theme }) => theme.buttonPrimaryColor};
+  background: #1e990a;
   border-radius: 4px;
   border: 1px;
   color: white;
