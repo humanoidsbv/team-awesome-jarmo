@@ -21,7 +21,7 @@ export const Header = () => {
       </Styled.LeftMenu>
 
       <Styled.RightMenu>
-        <Styled.Button isActive={!isActive} onClick={handleClick}>
+        <Styled.Button type="button" role="button" isActive onClick={handleClick}>
           <HamburgerIcon />
         </Styled.Button>
         <Styled.Button isActive={isActive} onClick={handleClick}>
