@@ -18,11 +18,7 @@
     "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */ /* Type Checking */,
     "strict": true /* Enable all strict type-checking options. */, // "noImplicitAny": true,                            /* En
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "noEmit": true,
     "incremental": true,
@@ -46,9 +42,5 @@
     "src/components/header/index.ts",
     "src/components/logo/Logo.styled.js"
   ],
-  "exclude": [
-    "node_modules",
-    "cypress",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["node_modules", "cypress"]
 }

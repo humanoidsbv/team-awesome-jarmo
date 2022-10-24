@@ -16,9 +16,9 @@ export const Navigation = ({ isActive }: MenuProps) => {
 
   return (
     <Styled.Nav isActive={isActive}>
-      <Styled.MenuList>
+      <Styled.MenuList data-cy="menu">
         {menuItems.map((menuItem) => (
-          <Styled.MenuItem key={menuItem.id}>
+          <Styled.MenuItem key={menuItem.id} data-cy="menu-item">
             <Link href={menuItem.link} passHref>
               <Styled.Link>{menuItem.name}</Styled.Link>
             </Link>

@@ -10,7 +10,7 @@ type SubHeaderProps = {
 
 export const SubHeader = ({ title, amount, subtitle, handleModal }: SubHeaderProps) => {
   return (
-    <Styled.SubHeader>
+    <Styled.SubHeader data-cy="sub-header">
       <Styled.EntryContainer>
         <Styled.Title>{title}</Styled.Title>
         <Styled.SubTitle>

@@ -1,9 +1,11 @@
 describe("Routing", () => {
   it("Navigates to other pages", () => {
-    cy.visit("https://team-awesome-jarmo-dh5j2l8dy-fecc.vercel.app");
+    // eslint-disable-next-line no-undef
+    cy.visit("http://localhost:3000");
 
-    cy.get("[data-cy=button]").should("exist");
-    // cy.get("[data-cy=menu-button]").click();
-    // cy.get("[data-cy=menu]").contains("Team Members").click();
+    // eslint-disable-next-line no-undef
+    cy.get("[data-cy=menu]").should("exist");
+    // eslint-disable-next-line no-undef
+    cy.get("[data-cy=menu]").contains("Team Members").click();
   });
 });
