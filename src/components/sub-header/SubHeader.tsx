@@ -19,7 +19,7 @@ export const SubHeader = ({ title, amount, subtitle, handleModal }: SubHeaderPro
         </Styled.SubTitle>
       </Styled.EntryContainer>
       <Styled.ButtonWrapper>
-        <Button hasIcon label="New time entry" onClick={() => handleModal()} />
+        <Button data-cy="add-button" hasIcon label="New time entry" onClick={() => handleModal()} />
       </Styled.ButtonWrapper>
     </Styled.SubHeader>
   );
