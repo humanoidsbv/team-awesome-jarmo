@@ -6,9 +6,11 @@ exports[`renders correctly 1`] = `
 >
   <ul
     className="Navigationstyled__MenuList-sc-e77p0y-1 jVPQRI"
+    data-cy="menu"
   >
     <li
       className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+      data-cy="menu-item"
     >
       <a
         className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
@@ -22,6 +24,7 @@ exports[`renders correctly 1`] = `
     </li>
     <li
       className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+      data-cy="menu-item"
     >
       <a
         className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
@@ -35,6 +38,7 @@ exports[`renders correctly 1`] = `
     </li>
     <li
       className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+      data-cy="menu-item"
     >
       <a
         className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
@@ -48,6 +52,7 @@ exports[`renders correctly 1`] = `
     </li>
     <li
       className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+      data-cy="menu-item"
     >
       <a
         className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
@@ -61,6 +66,7 @@ exports[`renders correctly 1`] = `
     </li>
     <li
       className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+      data-cy="menu-item"
     >
       <a
         className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
