@@ -3,7 +3,7 @@ import { Button } from "../Button";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "@testing-library/jest-dom/extend-expect";
 
-test("if component renders child", async () => {
+test("if component renders child", () => {
   const component = render(<Button label="test" />);
 
   expect(component.queryByRole("button"));

@@ -4,13 +4,14 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "dev": "NODE_ENV=development next & npm run json-server",
+    "build-storybook": "build-storybook",
     "build": "next build",
-    "start": "NODE_ENV=production next start",
+    "cypress": "cypress open",
+    "dev": "NODE_ENV=development next & npm run json-server",
     "json-server": "json-server --watch db.json --port 3004",
     "lint": "eslint '*/**/*.{js,ts,tsx}'",
+    "start": "NODE_ENV=production next start",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "test": "jest"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-info": "^5.3.21",
     "@testing-library/react": "^13.4.0",
+    "cypress": "^10.10.0",
     "next": "^12.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
