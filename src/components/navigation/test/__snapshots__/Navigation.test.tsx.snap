@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="Navigationstyled__Nav-sc-e77p0y-0 fuFDAf"
+>
+  <ul
+    className="Navigationstyled__MenuList-sc-e77p0y-1 jVPQRI"
+  >
+    <li
+      className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+    >
+      <a
+        className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        Timesheet
+      </a>
+    </li>
+    <li
+      className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+    >
+      <a
+        className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
+        href="/team-members"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        Team Members
+      </a>
+    </li>
+    <li
+      className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+    >
+      <a
+        className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
+        href="/projects"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        Projects
+      </a>
+    </li>
+    <li
+      className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+    >
+      <a
+        className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
+        href="/client"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        Clients
+      </a>
+    </li>
+    <li
+      className="Navigationstyled__MenuItem-sc-e77p0y-3 khhQbA"
+    >
+      <a
+        className="Navigationstyled__Link-sc-e77p0y-2 RDTAP"
+        href="/documents"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+        onTouchStart={[Function]}
+      >
+        Documents
+      </a>
+    </li>
+  </ul>
+</div>
+`;
