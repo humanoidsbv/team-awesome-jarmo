@@ -1,7 +1,7 @@
 on: push
 
 jobs:
-  build:
+  run-tests:
     name: Test application
     runs-on: ubuntu-latest
     steps:
@@ -17,5 +17,5 @@ jobs:
       - name: 🧰  Install
         run: npm ci --production-only
 
-      - name: 🔬 test
-        run: npm run test
+      - name: 🔬 Jest test
+        run: npm test
