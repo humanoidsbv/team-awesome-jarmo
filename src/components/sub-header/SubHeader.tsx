@@ -10,7 +10,7 @@ type SubHeaderProps = {
 
 export const SubHeader = ({ title, amount, subtitle, handleModal }: SubHeaderProps) => {
   return (
-    <Styled.SubHeader>
+    <Styled.SubHeader data-cy="sub-header">
       <Styled.EntryContainer>
         <Styled.Title>{title}</Styled.Title>
         <Styled.SubTitle>
@@ -19,7 +19,7 @@ export const SubHeader = ({ title, amount, subtitle, handleModal }: SubHeaderPro
         </Styled.SubTitle>
       </Styled.EntryContainer>
       <Styled.ButtonWrapper>
-        <Button hasIcon label="New time entry" onClick={() => handleModal()} />
+        <Button data-cy="add-button" hasIcon label="New time entry" onClick={() => handleModal()} />
       </Styled.ButtonWrapper>
     </Styled.SubHeader>
   );
