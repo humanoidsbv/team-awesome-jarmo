@@ -1,6 +1,6 @@
 # Team Awesome 📅
 
-Team Awesome is a "Software as a Service" (SaaS) solution that can be used by Humanoids employees for planning projects, tracking time and much more. On the timesheet page user can record their worked hours a get a clear overview of their work by filtering by client and sorting by date. Us On the Team members page users can provide information on the projects and clients they worked on. By clicking the green button on the right top-corner users can fill in the form to provide all the information.
+Team Awesome is a "Software as a Service" (SaaS) solution that can be used by Humanoids employees for planning projects, tracking time and much more. On the timesheet page users can record their worked hours a get a clear overview of their work by filtering by client and sorting by date. On the Team members page users can provide information on the projects and clients they worked on. By clicking the green button on the right top-corner users can fill in the forms to provide all the information.
 
 ## Installation 💿
 
@@ -61,6 +61,6 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## Credits
+## Credits 🤝
 
 I would like to give a special thanks to the Humanoids teachers and trainees for their guidance and explanations during the crash course, as well for their support during the Team Awesome project. Thanks to their patience and teachings I was able to develop my skills.
