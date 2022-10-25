@@ -13,7 +13,7 @@ To run the Team Awesome app [Node](https://nodejs.org/en/) and [NPM](https://doc
 # Let's install Node.js using Homebrew:
 Brew install node
 
-# Now you can your Node version by typing the following command:
+# Now you can check your Node version by typing the following command:
 node -v
 ```
 
