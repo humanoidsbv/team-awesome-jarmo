@@ -1,4 +1,3 @@
-import Link from "next/link";
 import * as Styled from "./Navigation.styled";
 
 type MenuProps = {
@@ -19,9 +18,7 @@ export const Navigation = ({ isActive }: MenuProps) => {
       <Styled.MenuList data-cy="menu">
         {menuItems.map((menuItem) => (
           <Styled.MenuItem key={menuItem.id} data-cy="menu-item">
-            <Link href={menuItem.link} passHref>
-              <Styled.Link>{menuItem.name}</Styled.Link>
-            </Link>
+            <Styled.Link href={menuItem.link}>{menuItem.name}</Styled.Link>
           </Styled.MenuItem>
         ))}
       </Styled.MenuList>
