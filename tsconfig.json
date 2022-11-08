@@ -40,7 +40,8 @@
     "src/components/navigation/index.ts",
     "src/components/header/Header.tsx",
     "src/components/header/index.ts",
-    "src/components/logo/Logo.styled.js"
+    "src/components/logo/Logo.styled.js",
+    "app/page.js"
   ],
   "exclude": ["node_modules", "cypress"]
 }
