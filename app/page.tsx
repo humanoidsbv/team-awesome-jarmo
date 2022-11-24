@@ -1,4 +1,5 @@
 import Homepage from "./HomePage";
+
 import { getTimeEntries } from "../src/services/time-entries";
 
 async function fetchData() {
@@ -10,7 +11,7 @@ async function fetchData() {
   };
 }
 
-export default function Page() {
+export default async function Page() {
   const initialTimeEntries = fetchData();
 
   return (

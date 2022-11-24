@@ -34,14 +34,10 @@ export class MyDocument extends Document {
   }
 }
 
-export default function RootLayout(
-  { children }: { children: React.ReactNode },
-  { Component, pageProps }: AppProps,
-) {
+export default function RootLayout({ Component, pageProps }: AppProps) {
   return (
     <html lang="en">
       <body>
-        {children}
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Header />

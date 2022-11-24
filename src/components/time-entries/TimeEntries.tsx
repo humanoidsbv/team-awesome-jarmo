@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useContext, useEffect, useState } from "react";
 
 import * as Styled from "./TimeEntries.styled";
