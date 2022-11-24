@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { AppProps } from "next/app";
 
 import { ThemeProvider, ServerStyleSheet } from "styled-components";

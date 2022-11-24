@@ -12,7 +12,7 @@ async function fetchData() {
 }
 
 export default async function Page() {
-  const initialTimeEntries = fetchData();
+  const initialTimeEntries = await fetchData();
 
   return (
     <div>
