@@ -4,19 +4,13 @@ import { getTimeEntries } from "../src/services/time-entries";
 
 async function fetchData() {
   const initialTimeEntries = await getTimeEntries();
-  return {
-    props: {
-      initialTimeEntries,
-    },
-  };
+  return initialTimeEntries instanceof Error ? [] : initialTimeEntries;
 }
 
-export default async function Page() {
+const Page = async () => {
   const initialTimeEntries = await fetchData();
 
-  return (
-    <div>
-      <Homepage initialTimeEntries={initialTimeEntries} />
-    </div>
-  );
-}
+  return <Homepage initialTimeEntries={initialTimeEntries} />;
+};
+
+export default Page;

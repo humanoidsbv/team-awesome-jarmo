@@ -1,7 +1,8 @@
-import { AppProps } from "next/app";
+"use client";
 
 import { ThemeProvider, ServerStyleSheet } from "styled-components";
 import Document, { DocumentContext } from "next/document";
+import { ReactNode } from "react";
 import GlobalStyle from "../styles/global";
 import { theme } from "../styles/theme";
 import { Header } from "../src/components/header/Header";
@@ -33,14 +34,14 @@ export class MyDocument extends Document {
   }
 }
 
-export default function RootLayout({ Component, pageProps }: AppProps) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <Header />
-          <Component {...pageProps} />
+          {children}
         </ThemeProvider>
       </body>
     </html>

@@ -1,45 +1,16 @@
-"use client";
+import TeamPage from "./TeamPage";
 
-import React, { useState } from "react";
-import { SubHeader } from "../../src/components/sub-header";
-import { TeamMemberEntries } from "../../src/components/team-member-entries";
 import { getTeamMembers } from "../../src/services/team-members/get-team-members";
-import { TeamProvider } from "../../src/components/context/TeamContextProvider";
-import * as Types from "../../src/types/types";
 
 async function fetchData() {
   const initialTeamMembers = await getTeamMembers();
-  return {
-    props: {
-      initialTeamMembers,
-    },
-  };
+  return initialTeamMembers instanceof Error ? [] : initialTeamMembers;
 }
 
-const Page = ({ initialTeamMembers, initialFormValues }: Types.AtBuildTeamProps) => {
-  fetchData();
-  const [isModalActive, setIsModalActive] = useState(false);
+const Page = async () => {
+  const initialTeamMembers = await fetchData();
 
-  const handleModal = () => {
-    setIsModalActive(!isModalActive);
-  };
-
-  return (
-    <TeamProvider initialTeamMembers={initialTeamMembers}>
-      <SubHeader
-        title="Teammembers"
-        amount={initialTeamMembers.length}
-        subtitle="Humanoids"
-        handleModal={handleModal}
-      />
-      <TeamMemberEntries
-        initialTeamMembers={initialTeamMembers}
-        isModalActive={isModalActive}
-        handleModal={handleModal}
-        initialFormValues={initialFormValues}
-      />
-    </TeamProvider>
-  );
+  return <TeamPage initialTeamMembers={initialTeamMembers} />;
 };
 
 export default Page;
