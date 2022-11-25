@@ -1,19 +1,10 @@
+"use client";
+
 import { useState } from "react";
 import { EntriesProvider } from "../src/components/context/ContextProvider";
-import { getTimeEntries } from "../src/services/time-entries";
 import { SubHeader } from "../src/components/sub-header/SubHeader";
 import { TimeEntries } from "../src/components/time-entries/TimeEntries";
 import * as Types from "../src/types/types";
-
-export const getServerSideProps = async () => {
-  const initialTimeEntries = await getTimeEntries();
-
-  return {
-    props: {
-      initialTimeEntries,
-    },
-  };
-};
 
 const Homepage = ({ initialTimeEntries, initialFormValues }: Types.AtBuildProps) => {
   const [isModalActive, setIsModalActive] = useState(false);

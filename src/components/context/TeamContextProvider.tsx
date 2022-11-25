@@ -1,3 +1,5 @@
+"use client";
+
 import React, { createContext, Dispatch, FC, ReactNode, SetStateAction, useState } from "react";
 import * as Types from "../../types/types";
 

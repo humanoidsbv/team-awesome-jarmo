@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, Dispatch, useRef } from "react";
 
 import { Button } from "../button/Button";

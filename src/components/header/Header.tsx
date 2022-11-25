@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 
 import CloseIcon from "../../../public/icons/close.svg";

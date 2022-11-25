@@ -1,21 +1,23 @@
+"use client";
+
 import React, { useState } from "react";
-import { SubHeader } from "../src/components/sub-header";
-import { TeamMemberEntries } from "../src/components/team-member-entries";
-import { getTeamMembers } from "../src/services/team-members/get-team-members";
-import { TeamProvider } from "../src/components/context/TeamContextProvider";
-import * as Types from "../src/types/types";
+import { SubHeader } from "../../src/components/sub-header";
+import { TeamMemberEntries } from "../../src/components/team-member-entries";
+import { getTeamMembers } from "../../src/services/team-members/get-team-members";
+import { TeamProvider } from "../../src/components/context/TeamContextProvider";
+import * as Types from "../../src/types/types";
 
-export const getServerSideProps = async () => {
+async function fetchData() {
   const initialTeamMembers = await getTeamMembers();
-
   return {
     props: {
       initialTeamMembers,
     },
   };
-};
+}
 
-const TeamMembers = ({ initialTeamMembers, initialFormValues }: Types.AtBuildTeamProps) => {
+const TeamPage = ({ initialTeamMembers, initialFormValues }: Types.AtBuildTeamProps) => {
+  fetchData();
   const [isModalActive, setIsModalActive] = useState(false);
 
   const handleModal = () => {
@@ -40,4 +42,4 @@ const TeamMembers = ({ initialTeamMembers, initialFormValues }: Types.AtBuildTea
   );
 };
 
-export default TeamMembers;
+export default TeamPage;
